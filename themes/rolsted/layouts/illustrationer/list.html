@@ -71,10 +71,16 @@
                             <h2 class="c-illustration__title">{{ .Title }}</h2>
                             {{ $title := (print .Title " by Rolsted") }}
                             {{ with .Resources.GetMatch "**.jpg" }}
-                                {{ $image := .Resize "x600" }}
-                                {{ $image_retina := .Resize "x1200" }}
+                                {{ $image_size_1 := .Resize "x400" }}
+                                {{ $image_size_2 := .Resize "x600" }}
+                                {{ $image_size_3 := .Resize "x800" }}
+                                {{ $image_size_4 := .Resize "x1200" }}
                                 <div class="c-illustration__image">
-                                    <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }}" title="{{ $title }}" />
+                                    <img srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                                 {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                                                 {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                                                 {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w"
+                                    src="{{ $image_size_1.RelPermalink }}"  alt="{{ $title }}" title="{{ $title }}" height="{{ $image_size_1.Height }}" width="{{ $image_size_1.Width }}" />
                                 </div>
                             {{ end }}
                             <i class="c-illustration__icon c-icon c-icon--dark c-icon--css c-icon--css-plus"></i>
