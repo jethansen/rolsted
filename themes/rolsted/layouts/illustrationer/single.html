@@ -9,7 +9,12 @@
             <div class="c-hero-layout-2">
                 <div class="c-hero-layout-2__content">
                     <h1 class="c-hero-layout-2__title">{{ partial "headline" . }}</h1>
-                    <div class="c-hero-layout-2__text">{{ .Content }}</div>
+                    <div class="c-hero-layout-2__text">
+                        {{ $desc := i18n "illustration-default-description" }}
+                        {{ $string := printf "%s%s" .Content $desc }}
+                        {{ $string_cleaned := replace $string "<p>" "" }}
+                        {{ replace $string_cleaned "</p>" "" | safeHTML }}
+                    </div>
                 </div>
                 <a class="c-button c-button--add-to-cart">
                     <i class="c-button__icon">{{ partial "svg/cart" }}</i>
@@ -20,9 +25,9 @@
     </div>
 </div>
 
-<div class="grid grid--container grid--container-wider">
+<div class="grid grid--container grid--container-wide">
     <div class="row">
-        <div class="col col--xs-12">
+        <div class="col col--xs-12 l-margin-bottom-md">
             <div class="c-illustration c-illustration--single {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
                 {{ with .Resources.GetMatch "**.jpg" }}
                     {{ $image := .Resize "x600" }}
@@ -35,9 +40,10 @@
             <div class="t-caption">{{ $pageTitle }} {{ $byline }}</div>
         </div>
         {{ with .Resources.ByType "image" }}
-            {{ range after 1 .  }}
+            {{ range $index, $element := after 1 .  }}
                 {{ $title := (print .Title $byline ) }}
-                <div class="col col--xs-12 col--md-6">
+
+                <div class="col col--xs-12 l-margin-bottom-md {{ if lt .Width .Height }}col--md-6{{ end }}">
                     {{ $image := .Resize "x900" }}
                     {{ $image_retina := .Resize "x1800" }}
                     {{ if eq .Name "multi" }}
@@ -90,27 +96,36 @@
 </div>
 
 <!-- Fetch 6 random illustrations -->
-<div class="grid grid--container l-padding-xl">
+<div class="grid grid--container grid--container-wide l-padding-xl">
     <div class="row">
         <div class="col col--xs-12">
             <h3>{{ i18n "more-illustrations" }}</h3>
         </div>
     </div>
     <div class="row">
-        {{ $randomIllustrations := shuffle (where .Site.RegularPages "Type" "illustrationer") | first 6 }}
-        {{ range $randomIllustrations }}
-            <div class="col col--xs-6 col--md-4">
-                <a class="c-illustration c-illustration--sm {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
-                    {{ $title := (print .Title " by Rolsted") }}
-                    {{ with .Resources.GetMatch "**.jpg" }}
-                        {{ $image := .Resize "x600" }}
-                        {{ $image_retina := .Resize "x1200" }}
-                        <div class="c-illustration__image">
-                            <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }}" title="{{ $title }}" />
-                        </div>
-                    {{ end }}
-                </a>
-            </div>
+        {{ $randomIllustrations := shuffle (where .Site.RegularPages "Type" "illustrationer") }}
+        {{ $.Scratch.Set "i" 1 }}
+        {{ range $index, $element := $randomIllustrations }}
+            {{ $i := $.Scratch.Get "i" }}
+            {{ if not (or (eq .Title $pageTitle) (gt $i 6) ) }}
+                <div class="col col--xs-6 col--md-4 ">
+                    <a class="c-illustration c-illustration--sm {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
+                        {{ $title := (print .Title " by Rolsted") }}
+                        {{ with .Resources.GetMatch "**.jpg" }}
+                            {{ $image := .Resize "x600" }}
+                            {{ $image_retina := .Resize "x1200" }}
+                            <div class="c-illustration__image">
+                                <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }}" title="{{ $title }}" />
+                            </div>
+                        {{ end }}
+                    </a>
+                </div>
+                
+                <!-- Increase index -->
+                {{ $newIndex := add $i 1 }}
+                {{ $.Scratch.Set "i" $newIndex }}
+
+            {{ end }}
         {{ end }}
     </div>
     <div class="row">
