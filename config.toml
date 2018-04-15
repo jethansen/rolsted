@@ -1,0 +1,29 @@
+## BASE CONFIG
+baseURL = "//jethansen.github.io/"
+theme = "rolsted"
+DefaultContentLanguage = "da"
+
+## SET TAXONOMIES
+[Taxonomies]
+    tag = "tags"
+
+## IMAGE processing
+[imaging]
+    resampleFilter = "Lanczos"
+    quality = 80
+    anchor = "smart"
+
+## BEGIN LANGUAGES
+[languages]
+
+## Danish
+[languages.da]
+    copyright = "Ophavsret © 2018 Rolsted. Alle rettigheder forbeholdes."
+    title = "Rolsted"
+    weight = 1
+
+## English
+[languages.en]
+    copyright = "Copyright © 2018 Rolsted. All rights reserved."
+    title = "Rolsted"
+    weight = 2

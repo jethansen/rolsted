@@ -1,0 +1,31 @@
+/* STYLES */
+.c-hero-layout-2 {
+    &:extend(.x-flex, .x-flex-between, .x-flex-top);
+    padding-top: 9em;
+    padding-bottom: 3em;
+
+    @media @screen-up-to-lg {
+        text-align: center;
+        display: block;
+    }
+
+    @media @screen-lg {
+        padding-top: 7em;
+        padding-bottom: 4em;
+    }
+
+}
+
+.c-hero-layout-2__content {
+    max-width: 800px;
+
+    @media @screen-up-to-lg {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+}
+
+.c-hero-layout-2__title {
+    margin-bottom: 0.3em;
+}

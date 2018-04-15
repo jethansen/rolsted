@@ -1,0 +1,43 @@
+.c-hero-layout-4 {
+    padding-top: 8em;
+
+    @media @screen-lg {
+        padding-top: 8em;
+    }
+
+}
+
+.c-hero-layout-4__image {
+    background-color: @color-gray-dark;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media @screen-up-to-lg {
+        position: relative;
+        min-height: 0;
+        z-index: 1;
+        padding: 7em 2em;
+        font-size: 0.7em;
+        
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+    }
+    
+}
+
+.c-hero-layout-4__mobile-title {
+    color: white;
+    margin: 0;
+}

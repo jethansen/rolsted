@@ -1,0 +1,135 @@
+/* ---------------------------------------------------- */
+/* This file builds on top of the included flexbox grid */
+/* ---------------------------------------------------- */
+
+/* VARIABLES */
+
+/* Grid padding */
+@grid-padding-xs:               1.3rem;
+@grid-padding-sm:               1.6rem;
+@grid-padding-lg:               2.2rem;
+
+/* MIXINS - for easy re-use of code blocks */
+
+.row-space-around() {
+    .justify-content(space-around);
+}
+
+.row-space-between() {
+    .justify-content(space-between);
+}
+
+.space-below() {
+    margin-bottom: 2.5em;
+}
+
+/* Adding the option of resetting the Column offset */
+.col-offset-0() {
+    margin-left: 0;
+}
+
+/* ALL SCREENS */
+
+/* Give columns a z-index */
+.col {
+    z-index: 1;
+}
+
+.grid {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    @media @screen-lg {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+}
+
+/* Wide grid container */
+.grid--container-wide {
+    max-width: 1300px;
+}
+
+.grid--container-wider {
+    max-width: 1400px;
+}
+
+/* Space around */
+.row--xs-space-around { .row-space-around(); }
+
+/* Space between */
+.row--xs-space-between { .row-space-between(); }
+
+/* SMALL SCREENS AND UPWARD */
+
+@media @screen-sm {
+    
+   
+}
+
+/* MEDIUM SCREENS AND UPWARD */
+
+@media @screen-md {
+ 
+    /* Column offset reset */
+    .col--md-offset-0 { .col-offset-0(); }
+
+    /* Space around */
+    .row--md-space-around { .row-space-around(); }
+
+    /* Space between */
+    .row--md-space-between { .row-space-between(); }
+
+}
+
+/* LARGE SCREENS AND UPWARD */
+
+@media @screen-lg {
+    
+    /* Column offset reset */
+    .col--lg-offset-0 { .col-offset-0(); }
+
+    .col--lg-auto {
+        flex: 0 !important;
+    }
+
+    .col--lg-grow {
+        flex: 1 !important;
+    }
+
+    /* Space around */
+    .row--lg-space-around { .row-space-around(); }
+
+    /* Space between */
+    .row--lg-space-between { .row-space-between(); }
+    
+}
+
+/* EXTRA LARGE SCREENS AND UPWARD */
+@media @screen-xl {
+    
+    /* Column offset reset */
+    .col--xl-offset-0 { .col-offset-0(); }
+    
+}
+
+/* UP TO MEDIUM SCREENS */
+@media @screen-up-to-md {
+
+    /* Add space below */
+    .col--up-to-md-space-below {
+        .space-below();
+    }
+
+}
+
+/* UP TO LARGE SCREENS */
+@media @screen-up-to-lg {
+
+    /* Add space below */
+    .col--up-to-lg-space-below {
+        .space-below();
+    }
+
+}

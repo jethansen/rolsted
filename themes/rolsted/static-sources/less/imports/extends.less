@@ -1,0 +1,143 @@
+/* Global extend classes */
+
+.x-rounded {
+    .border-radius(0.3em);
+}
+
+.x-rounded-soft {
+    .border-radius(10px);
+}
+
+.x-reset-appearance {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+    .appearance(none);
+}
+
+.x-transition {
+    .transition(all 0.2s ease);
+}
+
+.x-transition-slow {
+    .transition(all 0.4s ease);
+}
+
+.x-transition-very-slow {
+    .transition(all 0.6s ease);
+}
+
+.x-transition-ease-in-out {
+    .transition(all 0.2s @ease-in-out-1);
+}
+
+.x-transition-none {
+    .transition(none);
+}
+
+.x-notextselect {
+    .user-select(none);
+}
+
+.x-circle {
+    .border-radius(50%);
+}
+
+.x-bg-cover {
+    .background-size(cover);
+}
+
+.x-box-shadow {
+    .box-shadow(0 0.5rem 1.5rem fade(@color-gray-dark, 15%));
+}
+
+.x-box-shadow-soft {
+    .box-shadow(0 0.5rem 3rem fade(@color-gray-dark, 15%));
+}
+
+.x-backface-visibility-hidden {
+    .backface-visibility(hidden);
+}
+
+.x-transition-menu {
+    .transition-transform(0.3s @ease-in-out-1);
+}
+
+.x-flex {
+    .display-flex();
+}
+
+.x-flex-center {
+    .align-items(center);
+}
+
+.x-flex-top {
+    .align-items(flex-start);
+}
+
+.x-flex-grow {
+    .flex-grow(1);
+}
+
+.x-flex-between {
+    .justify-content(space-between);
+}
+
+.x-font-family-headings {
+    font-family: @font-family-headings;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.x-extend-hit-area {
+    position: relative;
+    
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        margin: -20px 0 0 -20px;
+        background: transparent;
+        cursor: pointer;
+    }
+}
+
+/* Transparent gradient to show user that he can scroll horizontally */
+.x-hint-overflow {
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 4rem;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: none;
+        pointer-events: none;
+        .horizontal-gradient(fade(white, 0%), white);
+    }
+        
+}
+
+/* Make background fill container */
+.x-background-cover {
+    background-position: center center;
+    background-repeat: no-repeat;
+    .background-size(cover);
+}
+
+/* Provide some visual feedback when the user hovers and clicks */
+.x-haptic-default {
+    
+    .no-touchevents &:hover,
+    &:active {
+        opacity: 0.5;
+    }
+    
+    &:active {
+        .transition(none);
+    }
+    
+}

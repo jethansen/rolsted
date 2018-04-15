@@ -1,0 +1,31 @@
+.c-link {
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    white-space: nowrap;
+    color: @color-gray-dark;
+    font-weight: @font-weight-body-bold;
+        
+    &:after {
+        &:extend(.x-transition-ease-in-out);
+        content: '';
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 4px;
+        background-color: #D3F8FF;
+        .transform-origin(bottom left);
+    }
+
+    .no-touchevents &:hover {
+
+        &:after {
+            background-color: @color-gray-dark;
+            .transform(scaleY(0.25) translateY(4px));
+        }
+
+    }
+
+}

@@ -1,0 +1,59 @@
+{{ partial "header" . }}
+
+{{ $byline := i18n "by-rolsted" }}
+{{ $title := .Params.rel_illustration }}
+
+{{ if $title }}
+
+    <!-- Loop through pages to find relative page -->
+    {{ range .Site.Pages }}
+        {{ if eq .Title $title }}
+            {{ $.Scratch.Add "illustration_permalink" .Permalink }}
+        {{ end }}
+    {{ end }}
+
+{{ end }}
+
+<div class="grid grid--container grid--container grid--full-height">
+    <div class="row">
+        <div class="col col--xs-12">
+            <div class="c-hero-layout-4">
+                <div class="row row--xs-space-around row--md-reverse">
+                    <div class="col col--xs-12 col--lg-6 col--lg-offset-1 col--xl-5 col--xl-offset-1 col--up-to-lg-space-below">
+                        <div class="c-hero-layout-4__image text--xs-center">
+                            {{ with .Resources.GetMatch "**.jpg" }}
+                                
+                                {{ $image := .Resize "x900" }}
+                                {{ $image_retina := .Resize "x1800" }}
+                                {{ if $title }}
+                                    {{ $permalink := $.Scratch.Get "illustration_permalink" }}
+                                    <a href="{{ $permalink }}"><img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }} {{ $byline }}" title="{{ $title }} {{ $byline }}" /></a>  
+                                {{ else }}
+                                    <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ .Title }}" title="{{ .Title }}" />
+                                {{ end }}
+                            {{ end }}
+                            <div class="t-h1 c-hero-layout-4__mobile-title h-hide-lg">{{ partial "headline" . }}</div>
+                        </div>
+                        {{ if $title }}
+                            {{ $permalink := $.Scratch.Get "illustration_permalink" }}
+                            <div class="t-caption h-hide-up-to-lg">
+                                <a href="{{ $permalink }}" class="c-link">{{ $title }}</a> {{ $byline }}
+                            </div>
+                        {{ end }}
+                    </div>
+                    <div class="col col--xs-11 col--sm-8 col--lg-5 col--xl-6">
+                        <h1 class="c-hero-layout-4__title h-hide-up-to-lg">{{ partial "headline" . }}</h1>
+                        {{ .Content }}
+                        {{ if and (isset .Params "button_text") (isset .Params "button_link") }}
+                        <div class="text--xs-center text--lg-left l-margin-top-md">
+                            <a href="{{ .Params.button_link }}" class="c-button">{{ .Params.button_text }}</a>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ partial "footer" . }}

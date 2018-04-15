@@ -1,0 +1,168 @@
+/* VARS */
+@width-item-1: 8em;
+@width-item-2: 6.5em;
+
+/* ANIMATION */
+@-webkit-keyframes marker {.marker;}
+@-o-keyframes marker {.marker;}
+@keyframes marker {.marker;}
+
+.marker() {
+
+    0% {
+        .scaleX(1);
+    }
+
+    50% {
+        .scaleX(2);
+    }
+
+    100% {
+        .scaleX(1);
+    }
+
+}
+
+/* GENERAL */
+.c-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 1.5em;
+    z-index: 999;
+
+    @media @screen-lg {
+        padding-top: 2em;
+    }
+
+}
+
+/* NAVIGATION */
+.c-header__nav {
+    .display-flex();
+    .justify-content(center);
+    font-size: 0.9em;
+    margin: 0 auto;
+
+    @media @screen-up-to-lg {
+        border-top: 1px solid @color-gray-border;
+    }
+
+}
+
+.c-header__nav-inner {
+    .display-flex();
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.c-header__nav-item {
+    display: inline-block;
+
+    a {
+        &:extend(.x-transition);
+        display: block;
+        padding: 0.5em 0.8em;
+        text-transform: lowercase;
+        font-weight: @font-weight-body-bold;
+        color: @color-gray-regular;
+    }
+
+    &.is-active {
+
+        a {
+            color: @color-gray-dark; 
+        }
+
+    }
+
+    &:not(.is-active) {
+        
+        a {
+            &:extend(.x-haptic-default all);
+        }
+        
+    }
+
+    @media @screen-lg {
+        
+        a {
+            padding: 0.4em 1em;
+        }
+
+    }
+
+}
+
+.c-header__nav-marker {
+    .transition(all 0.5s @ease-in-out-1);
+    position: absolute;
+    width: 1.5em;
+    height: 1px;
+    top: -1px;
+    left: 1em;
+    opacity: 0;
+
+    &:after {
+        display: block;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: @color-gray-dark;
+        .transform-origin(right top);
+    }
+
+    .is-animating-reverse & {
+
+        &:after {
+            .transform-origin(left top);
+        }
+
+    }
+
+    .is-animating & {
+
+        &:after {
+          .animate(marker 0.7s @ease-in-out-1);
+        }
+        
+    }
+
+    .c-header__nav.has-active & {
+        opacity: 1;
+    }
+
+}
+
+/* LOGO */
+.c-header__logo {
+
+    svg {
+        display: block;
+        height: 18px;
+        width: auto;
+    }
+
+    @media @screen-up-to-lg {
+        display: block;
+        text-align: center;
+        margin-bottom: 0.25em;
+
+        svg {
+            margin: 0 auto;
+        }
+
+    }
+
+    @media @screen-md {
+
+        svg {
+            height: 22px;
+        }
+
+    }
+
+}

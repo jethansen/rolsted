@@ -1,0 +1,124 @@
+/* Base font styling */
+html {
+  font-size: @font-size-base;
+}
+
+body {
+    font-family: @font-family-body;
+    line-height: @line-height-md;
+    font-weight: @font-weight-body-normal;
+    color: @color-gray-regular;
+    -webkit-font-smoothing: antialiased;
+	
+}
+
+/* Headings */
+.x-headings {
+    font-family: @font-family-headings;
+    font-weight:  @font-weight-headings-normal;
+    line-height: @line-height-sm;
+    color: @color-gray-dark;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+    letter-spacing: @letter-spacing-lg;
+    
+    p + & {
+        margin-top: 2em;
+    }
+}
+
+h1, .t-h1 {
+    &:extend(.x-headings all);
+    font-size: @font-size-h1;
+}
+
+h2, .t-h2 {
+    &:extend(.x-headings all);
+    font-size: @font-size-h2;
+}
+
+h3, .t-h3 {
+    &:extend(.x-headings all);
+    font-size: @font-size-h3;
+}
+
+h4, .t-h4 {
+    font-weight:  @font-weight-body-bold;
+    line-height: @line-height-sm;
+    color: @color-gray-dark;
+    margin: 0 0 0.25em 0;
+    font-size: @font-size-h4;
+
+    p + & {
+        margin-top: 2em;
+    }
+
+}
+
+/* Strong, bold */
+strong, b {
+    font-weight: @font-weight-body-bold;
+}
+
+/* Font size helpers */
+.t-font-size-h1 { font-size: @font-size-h1; }
+.t-font-size-h2 { font-size: @font-size-h2; }
+.t-font-size-h3 { font-size: @font-size-h3; }
+
+@media @screen-md {
+    .t-font-size-large-on-lg { font-size: 1.8rem; }
+}
+
+/* Small caption */
+.t-caption {
+    display: block;
+    font-size: 0.85em;
+    letter-spacing: @letter-spacing-sm;
+    color: @color-gray-light;
+    margin-top: 0.5em;
+
+    @media @screen-md {
+        font-size: 0.8em;
+    }
+
+}
+
+/* Lead */
+.t-lead {
+    font-size: 1.1em;
+
+}
+
+/* Paragraphs */
+p {
+    margin: 0 0 1em 0;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+    
+}
+
+
+/* Links */
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media @screen-sm {
+
+    html {
+        font-size: @font-size-base-desktop * 0.9;
+    }
+    
+}
+
+@media @screen-lg {
+
+    html {
+        font-size: @font-size-base-desktop;
+    }
+
+}

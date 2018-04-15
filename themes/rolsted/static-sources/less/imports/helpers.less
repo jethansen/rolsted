@@ -1,0 +1,130 @@
+/* Text alignment */
+.h-text-align-center { text-align: center; }
+
+/* Backgrounds */
+.h-background-color-primary { background-color: @color-primary !important; }
+.h-background-color-secondary { background-color: @color-secondary !important; }
+.h-background-color-tertiary { background-color: @color-tertiary !important; }
+.h-background-color-quaternary { background-color: @color-quaternary !important; }
+.h-background-color-gray-dark { background-color: @color-gray-dark !important; }
+.h-background-color-gray-background { background-color: @color-gray-background !important; }
+.h-background-color-white { background-color: white !important; }
+
+/* Rotate */
+.h-rotate-180 { .rotate(180deg); }
+
+/* Colors */
+.h-color-primary { color: @color-primary !important; }
+.h-color-gray-regular { color: @color-gray-regular !important; }
+.h-color-white { color: white !important; }
+
+/* Extend click area */
+.h-extend-hit-area { &:extend(.x-extend-hit-area all); }
+
+/* Display */
+.h-display-block {
+    display: block;
+}
+
+/* Classes for hiding content on specific screen sizes */
+
+.h-hide-xs {
+    display: none !important;
+}
+
+.h-hide-sm {
+    
+    @media @screen-sm {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-md {
+    
+    @media @screen-md {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-lg {
+    
+    @media @screen-lg {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-xl {
+    
+    @media @screen-xl {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-up-to-sm {
+    
+    @media @screen-up-to-sm {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-up-to-md {
+    
+    @media @screen-up-to-md {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-up-to-lg {
+    
+    @media @screen-up-to-lg {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-up-to-xl {
+    
+    @media @screen-up-to-xl {
+        display: none !important;
+    }
+    
+}
+
+
+.h-hide-sm-only {
+    
+    @media @screen-sm-only {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-md-only {
+    
+    @media @screen-md-only {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-lg-only {
+    
+    @media @screen-lg-only {
+        display: none !important;
+    }
+    
+}
+
+.h-hide-xl-only {
+    
+    @media @screen-xl-only {
+        display: none !important;
+    }
+    
+}

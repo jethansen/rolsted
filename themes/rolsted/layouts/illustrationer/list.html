@@ -1,0 +1,93 @@
+{{ partial "header" . }}
+
+{{ $byline := i18n "by-rolsted" }}
+{{ $title := .Params.rel_illustration }}
+
+{{ if $title }}
+
+    <!-- Loop through pages to find relative page -->
+    {{ range .Site.Pages }}
+        {{ if eq .Title $title }}
+            {{ $.Scratch.Add "illustration_permalink" .Permalink }}
+        {{ end }}
+    {{ end }}
+
+{{ end }}
+
+<div class="grid grid--container grid--container-wider grid--full-height">
+    <div class="row">
+        <div class="col col--xs-12 text--center">
+            <div class="c-hero-layout-1">
+                <div class="c-hero-layout-1__text">
+                    <div class="t-lead">
+                        {{.Content}}
+                        <a href="#illustrations" class="c-hero-layout-1__mouse no-barba js-scroll-to-anchor h-hide-up-to-lg"></a>
+                    </div>
+                </div>
+                <div class="c-hero-layout-1__image">
+                    {{ with .Resources.GetMatch "**.jpg" }}
+                        
+                        {{ $image := .Resize "1300x" }}
+                        {{ $image_retina := .Resize "2600x" }}
+
+                        {{ if $title }}
+                            {{ $permalink := $.Scratch.Get "illustration_permalink" }}
+                            <a href="{{ $permalink }}"><img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }} {{ $byline }}" title="{{ $title }} {{ $byline }}" /></a>  
+                        {{ else }}
+                            <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ .Title }}" title="{{ .Title }}" />
+                        {{ end }}
+
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="grid grid--container grid--container grid--container-wide l-padding-xl" id="illustrations">
+    
+    <div class="row">
+        
+        <!-- Filters -->
+        <aside class="col col--xs-12 col--lg-auto c-filter">
+
+            <div class="c-filter__wrap">
+                <ul class="c-filter__list js-filter-nav">
+                    <li class="c-filter__list-item is-active js-filter-nav-item" data-target="All"><span>{{ i18n "all" }}</span></li>
+                    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                        <li class="c-filter__list-item js-filter-nav-item" data-target="{{ humanize $name }}"><span>{{ humanize $name }}</span></li>
+                    {{ end }}
+                </ul>
+            </div>
+   
+        </aside>
+
+        <div class="col col--xs-12 col--lg-grow">
+            <div class="row c-illustration-wrap js-filter-illustrations">
+
+                {{ range $index, $element := .Pages }}
+                    <div class="col col--xs-12 col--sm-6 c-illustration-col js-filter-illustration-item {{ if modBool (add $index 1) 2 }}is-second{{end}} {{ if modBool (add $index 1) 3 }}is-third{{end}}" data-tags="{{ delimit .Params.tags "," }}">
+                        <a class="c-illustration {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
+                            <h2 class="c-illustration__title">{{ .Title }}</h2>
+                            {{ $title := (print .Title " by Rolsted") }}
+                            {{ with .Resources.GetMatch "**.jpg" }}
+                                {{ $image := .Resize "x600" }}
+                                {{ $image_retina := .Resize "x1200" }}
+                                <div class="c-illustration__image">
+                                    <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }}" title="{{ $title }}" />
+                                </div>
+                            {{ end }}
+                            <i class="c-illustration__icon c-icon c-icon--dark c-icon--css c-icon--css-plus"></i>
+                        </a>
+                    </div>
+                {{ end }}
+            
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{{ partial "about" . }}
+{{ partial "footer" . }}

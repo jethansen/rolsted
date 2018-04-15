@@ -1,0 +1,35 @@
+{{ partial "header" . }}
+
+<div class="grid grid--container grid--container-wider grid--full-height">
+    <div class="row">
+        <div class="col col--xs-12 text--center">
+            <div class="c-hero-layout-3">
+                <div class="c-hero-layout-3__text">
+
+                    <h1 class="c-hero-layout-3__title">{{ partial "headline" . }}</h1>
+
+                    <div class="c-hero-layout-3__background">
+                            <video autoplay muted loop playsinline poster="{{ "_assets/video/rolsted.jpg" | relURL}}" class="js-inview" data-inviewtype="video">
+                                <source src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
+                            </video>
+                    </div>
+
+                </div>
+                <div class="c-hero-layout-3__line"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="grid grid--container grid--container grid--container-wide l-padding-bottom-xl">
+    
+    <div class="row row--xs-space-around">
+        <div class="col col--xs-11 col--sm-8 col--lg-7 col--xl-6">
+            <div class="c-avatar c-avatar--centered l-margin-bottom-md" style="background-image: url({{ "_assets/images/rolsted_profil.jpg" | relURL}});"></div>
+                {{ .Content }}
+        </div>
+    </div>
+
+</section>
+
+{{ partial "footer" . }}

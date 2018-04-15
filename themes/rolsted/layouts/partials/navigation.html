@@ -1,0 +1,14 @@
+<nav class="c-header__nav  js-nav">
+    <ul class="c-header__nav-inner js-nav-inner">
+        {{ $url := .URL }}
+        {{ range .Site.Menus.main }}
+            <li class="c-header__nav-item {{ if in $url .URL }} is-active{{end}} js-nav-item">
+                <a href="{{.URL}}">
+                    {{ .Pre }}
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+        {{end}}
+        <div class="c-header__nav-marker js-nav-marker"></div>
+    </ul>
+</nav>

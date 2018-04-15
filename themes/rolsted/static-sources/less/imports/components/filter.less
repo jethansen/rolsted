@@ -1,0 +1,141 @@
+.c-filter {
+
+    @media @screen-up-to-lg {
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
+        z-index: 2;
+        top: 0;
+        padding-top: 0;
+        margin: 0 0 4em 0;
+    }
+
+}
+
+.c-filter__wrap {
+    &:extend(.x-hint-overflow all);
+    background: white;
+
+    @media @screen-up-to-lg {
+        margin: 0 -2rem;
+        position: relative;
+        .box-shadow(0 10px 20px fade(@color-gray-dark, 10%));
+
+        /* Show the hint overflow */
+        &:after {
+            display: block;
+        }
+
+    }
+    
+    @media @screen-lg {
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
+        z-index: 1;
+        top: 2rem;
+        padding-right: 4vw;
+    }
+
+}
+
+.c-filter__list {
+    white-space: nowrap;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    font-size: 1.1em;
+    padding: 0;
+
+    @media @screen-up-to-lg {
+        padding: 0 2rem;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    @media @screen-md {
+        font-size: 1.3em;
+    }
+
+    @media @screen-xl {
+        font-size: 1.5em;
+    }
+    
+}
+
+.c-filter__list-item {
+    &:extend(.x-transition-slow);
+    position: relative;
+    font-family: @font-family-headings;
+    font-weight: @font-weight-headings-normal;
+    text-transform: uppercase;
+    color: @color-gray-dark;
+    letter-spacing: @letter-spacing-lg;
+    padding: 0.7em 0;
+    cursor: pointer;
+
+    .no-touchevents &:hover {
+        color: @color-gray-dark;
+    }
+
+    &:before {
+        &:extend(.x-transition-slow);
+        content: '';
+        position: absolute;
+        z-index: 1;
+        height: 1;
+        background: @color-gray-dark;
+    }
+
+    &:not(.is-active) {
+        color: @color-gray-light;
+
+        &:before {
+            .scaleX(0);
+        }
+
+    }
+
+    &.is-active {
+        pointer-events: none;
+    }
+
+    @media @screen-up-to-lg {
+        display: inline-block;
+        margin-right: 1em;
+
+        &:before {
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+
+    }
+
+    @media @screen-lg {
+        padding: 0.3em 0;
+        width: 100%;
+        text-align: right;
+
+        span {
+            background: white;
+            padding-left: 0.5em;
+        }
+
+        &:before {
+            .transition(all 0.7s cubic-bezier(1,.03,.37,.97));
+            bottom: 0.9em;
+            width: 200%;
+            right: 0;
+            z-index: -1;
+            .transform-origin(top right);
+        }
+
+    }
+
+}

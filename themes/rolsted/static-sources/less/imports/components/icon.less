@@ -1,0 +1,123 @@
+/* --- ICON MIXINS --- */
+
+.icon-theme(@color) {
+    
+    .c-icon__fill { fill: @color;  }
+    .c-icon__stroke { stroke: @color;  }
+    &.c-icon--css:before, &.c-icon--css:after { background-color: @color; border-color: @color; }
+    
+}
+
+/* --- GENERAL ICON STYLES --- */
+
+.c-icon {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+}
+
+.c-icon--inline {
+    vertical-align: middle;
+}
+
+.c-icon--inline-left {
+    margin-right: 0.75em;
+}
+
+.c-icon--inline-right {
+    margin-left: 0.75em;
+}
+
+/* --- PURE CSS ICONS --- */
+
+.c-icon--css {
+    position: relative;
+    
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        background-color: @color-gray-dark;
+    }
+    
+}
+
+.c-icon--css-close {
+    
+    &:before,
+    &:after {
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        margin: -1px 0 0 -0.45em;
+    }
+    
+    &:before {
+        .rotate(45deg);
+    }
+    
+    &:after {
+        .rotate(-45deg);
+    }
+    
+}
+
+.c-icon--css-plus {
+    
+    &:before,
+    &:after {
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        margin: -1px 0 0 -0.45em;
+    }
+    
+    &:before {
+        .rotate(90deg);
+    }
+    
+}
+
+/* --- ICON SIZES --- */
+
+.c-icon--xxs {
+    width: 14px;
+    height: 14px;
+}
+
+.c-icon--xs {
+    width: 16px;
+    height: 16px;
+}
+
+.c-icon--sm {
+    width: 20px;
+    height: 20px;
+}
+
+.c-icon--md {
+    width: 24px;
+    height: 24px;
+}
+
+.c-icon--lg {
+    width: 30px;
+    height: 30px;
+}
+
+/* --- ICON COLOR THEMES --- */
+
+.c-icon--primary { .icon-theme(@color-primary); }
+.c-icon--dark { .icon-theme(@color-gray-dark); }
+.c-icon--light { .icon-theme(@color-gray-light); }
+.c-icon--white { .icon-theme(white); }
+

@@ -1,0 +1,14 @@
+<!-- Image -->
+{{ if eq .size "large" }}
+    {{ $image := .image.Resize "x900" }}
+    {{ $image_retina := .image.Resize "x1800" }}
+    <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Height }}h, {{ $image.RelPermalink }} {{ $image.Height }}h" height="{{ $image.Height }}" alt="{{ .caption }}" />
+{{ else if eq .size "medium" }}
+    {{ $image := .image.Resize "x580" }}
+    {{ $image_retina := .image.Resize "x1160" }}
+    <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Height }}h, {{ $image.RelPermalink }} {{ $image.Height }}h" height="{{ $image.Height }}" alt="{{ .caption }}" />
+{{ else if eq .size "small" }}
+    {{ $image := .image.Resize "x420" }}
+    {{ $image_retina := .image.Resize "x840" }}
+    <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Height }}h, {{ $image.RelPermalink }} {{ $image.Height }}h" height="{{ $image.Height }}" alt="{{ .caption }}" />
+{{ end }}

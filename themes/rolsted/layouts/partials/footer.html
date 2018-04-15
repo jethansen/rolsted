@@ -1,0 +1,83 @@
+                    <footer class="c-footer l-margin-top-xl">
+
+                        <div class="h-background-color-gray-background">
+                            <div class="grid grid--container l-padding-xl">
+
+                                <div class="row row--xs-space-around text--xs-center text--md-left">
+                                    <div class="col col--xs-11 col--sm-8 col--md-4 col--up-to-md-space-below">
+                                        {{ partial "divider-zig-zag" }}
+                                        <h3 class="l-margin-top-sm l-margin-bottom-sm">{{ i18n "follow-me" }}</h3>
+                                        <div class="c-footer__content">
+                                            <p>{{ i18n "footer-follow-me-text" }}</p>
+                                            <div class="l-margin-top-md">
+                                                {{ partial "social-icons" . }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col--xs-11 col--sm-8 col--md-4 col--up-to-md-space-below text--xs-center text--md-left">
+                                        {{ partial "divider-zig-zag" }}
+                                        <h3 class="l-margin-top-sm l-margin-bottom-sm">{{ i18n "coorporation" }}</h3>
+                                        <div class="c-footer__content">
+                                            <p>{{ i18n "footer-coorporation-text" }}</p>
+                                            <a class="c-link l-margin-top-xs" href="mailto:%61%6E%65%74%74%65%40%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E">{{ i18n "contact-me" }}</a>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col col--xs-11 col--sm-8 col--md-4 text--md-left">
+                                        {{ partial "divider-zig-zag" }}
+                                        <h3 class="l-margin-top-sm l-margin-bottom-sm">{{ i18n "contact-me" }}</h3>
+                                        <div class="c-footer__content text">
+                                            <p>{{ i18n "footer-contact-me-text" }}</p>
+                                            <a class="c-link l-margin-top-xs" href="mailto:%61%6E%65%74%74%65%40%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E">{{ i18n "contact-me" }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        
+                        <div class="grid grid--container l-padding-md">
+                            <div class="row row--xs-space-around">
+                                <div class="col col--xs-11 col--md-4 text--xs-center text--md-left">
+                                    <div class="c-footer__content"> 
+                                        {{ if .IsTranslated }}
+                                            {{ range .Translations }}
+                                                <a class="c-link no-barba" href="{{ .Permalink }}" class="no-barba">
+                                                    {{ i18n "language-switch" }}
+                                                </a>
+                                            {{ end}}
+                                        {{ end }}
+                                    </div>
+                                </div>
+                                <div class="col col--xs-11 col--md-8 text--xs-center text--md-right">  
+                                    {{ $.Param "copyright" }}
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </footer>
+
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Typekit -->
+        <script>!function(e,t,n,a,c,l,m,o,d,f,h,i){c[l]&&(d=e.createElement(t),d[n]=c[l],e[a]("head")[0].appendChild(d),e.documentElement.className+=" wf-cached"),function s(){for(d=e[a](t),f="",h=0;h<d.length;h++)i=d[h][n],i.match(m)&&(f+=i);f&&(c[l]="/**/"+f),setTimeout(s,o+=o)}()}(document,"style","innerHTML","getElementsByTagName",localStorage,"tk",/^@font|^\.tk-/,100);</script>
+        <script>
+            (function(d) {
+                var config = {
+                    kitId: 'kgt1mnt',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+            })(document);
+        </script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ "_assets/js/app.js" | relURL}}"></script>
+
+	</body>
+</html>

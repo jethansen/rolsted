@@ -1,0 +1,32 @@
+<html>
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="{{ "_assets/css/main.css" | relURL}}">
+     <title>{{ .Site.Title }} ▽ {{ .Title }}</title>
+</head>
+<body>
+
+    <main id="main-scrollbar" data-scrollbar>
+
+        <header class="c-header grid grid--container grid--container-wider">
+            <div class="row row--xs-center">
+                <div class="col col--lg-3">
+                    <a class="c-header__logo" href="{{ if eq .Lang "da" }}/illustrationer{{ else }}/en/illustrations{{end}}">
+                        {{ partial "svg/logo" . }}
+                    </a>
+                </div>
+                <div class="col col--lg-6">
+                    {{ partial "navigation" . }}
+                </div>
+                <div class="col col--lg-3 text--right h-hide-up-to-lg">
+                    {{ partial "social-icons" . }}
+                </div>
+            </div>
+
+        </header>
+
+        <div id="barba-wrapper">
+            <div class="barba-container">
+                
