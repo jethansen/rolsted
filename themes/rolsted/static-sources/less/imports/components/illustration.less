@@ -22,7 +22,7 @@
     margin: 0 auto 3em auto;
     outline: none;
     .backface-visibility(hidden);
-    
+
     .no-touchevents &:not(.c-illustration--single):hover {
     
         img {
@@ -63,20 +63,11 @@
 }
 
 .c-illustration__image {
-    width: 100%;
     position: relative;
-    z-index: 1;
-    // filter: blur(0);
     width: 100%;
-    max-width: 300px;
     margin: 0 auto;
-
-    img {
-        &:extend(.x-transition-slow);
-        width: 100%;
-        height: auto;
-        filter: blur(0); // Fix webkit antialising issues on hover
-    }
+    max-width: 300px;
+    z-index: 1;
 
     &:before,
     &:after {
@@ -94,6 +85,33 @@
     &:after {
         opacity: 0;
     }
+
+}
+
+.c-illustration__image-inner {
+    position: relative;
+    width: 100%;
+    background-color: white;
+
+    &:after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 100%;
+        padding-bottom: 40% / 30 * 100;
+    }
+
+    img {
+        &:extend(.x-transition-slow);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        filter: blur(0); // Fix webkit antialising issues on hover
+    }
+
+
 
 }
 

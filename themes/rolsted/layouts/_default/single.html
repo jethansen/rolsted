@@ -22,14 +22,36 @@
                     <div class="col col--xs-12 col--lg-6 col--lg-offset-1 col--xl-5 col--xl-offset-1 col--up-to-lg-space-below">
                         <div class="c-hero-layout-4__image text--xs-center">
                             {{ with .Resources.GetMatch "**.jpg" }}
+                                    
+                                {{ $image_size_1 := .Resize "x600" }}
+                                {{ $image_size_2 := .Resize "x900" }}
+                                {{ $image_size_3 := .Resize "x1200" }}
+                                {{ $image_size_4 := .Resize "x1800" }}
                                 
-                                {{ $image := .Resize "x900" }}
-                                {{ $image_retina := .Resize "x1800" }}
                                 {{ if $title }}
+                                    
                                     {{ $permalink := $.Scratch.Get "illustration_permalink" }}
-                                    <a href="{{ $permalink }}"><img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }} {{ $byline }}" title="{{ $title }} {{ $byline }}" /></a>  
+                                    <a href="{{ $permalink }}">
+                                        <img
+                                        src="{{ $image_size_1.RelPermalink }}"
+                                        srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
+                                        data-sizes="auto"
+                                        data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                        {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                                        {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                                        {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                                        class="c-image lazyload" alt="{{ $title }} - {{ $byline }}" />
+                                    </a>  
                                 {{ else }}
-                                    <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ .Title }}" title="{{ .Title }}" />
+                                    <img
+                                    src="{{ $image_size_1.RelPermalink }}"
+                                    srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
+                                    data-sizes="auto"
+                                    data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                    {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                                    {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                                    {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                                    class="c-image lazyload" alt="{{ $title }} - {{ $byline }}" />
                                 {{ end }}
                             {{ end }}
                             <div class="t-h1 c-hero-layout-4__mobile-title h-hide-lg">{{ partial "headline" . }}</div>

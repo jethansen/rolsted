@@ -37,6 +37,17 @@ $(document).ready(function(){
 
     });
 
+    // Init Rellax
+    function initRellax() {
+
+        // var rellax = new Rellax('.js-rellax', {
+        //     center: true,
+        //     speed: -0.5
+        // });
+    }
+
+    initRellax();
+
     function checkMarker() {
         
         var nav = $('.js-nav');
@@ -156,6 +167,9 @@ $(document).ready(function(){
 
         // INIT INVIEW
         initInview();
+
+        // INIT RELLAX
+        initRellax();
 
     });
 

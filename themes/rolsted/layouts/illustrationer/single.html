@@ -37,16 +37,18 @@
                     {{ $image_size_4 := .Resize "x1100" }}
 
                     <div class="c-illustration__image">
-                        <img
-                        src="{{ $image_size_1.RelPermalink }}"
-                        sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
-                        (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
-                        100vw"
-                        srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
-                        {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
-                        {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
-                        {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                        alt="{{ $title }}" title="{{ $title }}" />
+                        <div class="c-illustration__image-inner">
+                            <img
+                            src="{{ $image_size_1.RelPermalink }}"
+                            sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
+                            (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
+                            100vw" 
+                            srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                            {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                            {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                            {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                            alt="{{ $title }}" title="{{ $title }}" />
+                        </div>
                     </div>
                 {{ end }}
                 </div>
@@ -70,6 +72,7 @@
                         {{ $delimited := delimit $images $delimiter }}
                         {{ $title := (print $delimited " " $byline) }}
 
+                        
                         <img
                         src="{{ $image_size_1.RelPermalink }}"
                         srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
@@ -78,7 +81,7 @@
                         {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                         {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                         {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                        class="c-image lazyload" alt="{{ $title }}" title="{{ $title }}" />
+                        class="c-image lazyload" alt="{{ $title }}" />
 
                         <div class="t-caption">
 
@@ -110,6 +113,7 @@
                         </div>
 
                     {{ else }}
+                        
                         <img
                         src="{{ $image_size_1.RelPermalink }}"
                         srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
@@ -120,6 +124,7 @@
                         {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
                         class="c-image lazyload" alt="{{ $title }}" title="{{ $title }}" />
                         <div class="t-caption">{{ $pageTitle }} {{ $byline }}</div>
+                        
                     {{ end }}
                 </div>
                 
@@ -141,8 +146,8 @@
         {{ range $index, $element := $randomIllustrations }}
             {{ $i := $.Scratch.Get "i" }}
             {{ if not (or (eq .Title $pageTitle) (gt $i 6) ) }}
-                <div class="col col--xs-6 col--md-4 ">
-                    <a class="c-illustration c-illustration--sm {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
+                <div class="col col--xs-6 col--md-4 c-inview js-inview" data-inviewonce=true data-inviewtype="default">
+                    <a class="c-illustration c-illustration--sm {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }} c-inview__el c-inview__el--slide-up" href="{{ .Permalink }}">
                         {{ $title := (print .Title " by Rolsted") }}
                         {{ with .Resources.GetMatch "**.jpg" }}
                             {{ $image_size_1 := .Resize "x300" }}
@@ -150,15 +155,17 @@
                             {{ $image_size_3 := .Resize "x900" }}
                             {{ $image_size_4 := .Resize "x1200" }}
                             <div class="c-illustration__image">
-                                <img
-                                src="{{ $image_size_1.RelPermalink }}"
-                                srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
-                                data-sizes="auto"
-                                data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
-                                {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
-                                {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
-                                {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                                class="lazyload" alt="{{ $title }}" title="{{ $title }}" />
+                                <div class="c-illustration__image-inner">
+                                    <img
+                                    src="{{ $image_size_1.RelPermalink }}"
+                                    srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
+                                    data-sizes="auto"
+                                    data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                    {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                                    {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                                    {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                                    class="lazyload" alt="{{ $title }}" title="{{ $title }}"  />
+                                </div>
                             </div>
                         {{ end }}
                     </a>

@@ -1,8 +1,18 @@
 .lazyload,
 .lazyloading {
-	opacity: 0;
+
+    &,
+    + .t-caption {
+        opacity: 0;
+    }
+
 }
 .lazyloaded {
-    &:extend(.x-transition);
-    opacity: 1;
+    
+    &,
+    + .t-caption {
+        &:extend(.x-transition);
+        opacity: 1;
+    }
+
 }
