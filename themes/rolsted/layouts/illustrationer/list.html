@@ -37,24 +37,26 @@
                             <a href="{{ $permalink }}">
                                 <img
                                 src="{{ $image_size_1.RelPermalink }}"
-                                srcset="data:image/gif;base64,R0lGODlhGAAOAIAAAP///wAAACH5BAEAAAAALAAAAAAYAA4AAAIQhI+py+0Po5y02ouz3ry/AgA7"
-                                data-sizes="auto"
-                                data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                sizes="(min-width: 1350px) 1350px,
+                                (min-width: 800px) 800px,
+                                100vw"
+                                srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
                                 {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                                 {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                                 {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                                class="lazyload" alt="{{ $title }}" title="{{ $title }}" />
+                                alt="{{ $title }}" title="{{ $title }}" />
                             </a>
                         {{ else }}
                             <img
                             src="{{ $image_size_1.RelPermalink }}"
-                            srcset="data:image/gif;base64,R0lGODlhGAAOAIAAAP///wAAACH5BAEAAAAALAAAAAAYAA4AAAIQhI+py+0Po5y02ouz3ry/AgA7"
-                            data-sizes="auto"
-                            data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                            sizes="(min-width: 1350px) 1350px,
+                            (min-width: 800px) 800px,
+                            100vw"
+                            srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
                             {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                             {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                             {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                            class="lazyload" alt="{{ $title }}" title="{{ $title }}" />
+                            alt="{{ $title }}" title="{{ $title }}" />
                         {{ end }}
 
                     {{ end }}
