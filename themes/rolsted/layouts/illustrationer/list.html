@@ -27,14 +27,34 @@
                 <div class="c-hero-layout-1__image">
                     {{ with .Resources.GetMatch "**.jpg" }}
                         
-                        {{ $image := .Resize "1350x" }}
-                        {{ $image_retina := .Resize "2700x" }}
+                        {{ $image_size_1 := .Resize "800x" }}
+                        {{ $image_size_2 := .Resize "1350x" }}
+                        {{ $image_size_3 := .Resize "1600x" }}
+                        {{ $image_size_4 := .Resize "2700x" }}
 
                         {{ if $title }}
                             {{ $permalink := $.Scratch.Get "illustration_permalink" }}
-                            <a href="{{ $permalink }}"><img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }} {{ $byline }}" title="{{ $title }} {{ $byline }}" /></a>  
+                            <a href="{{ $permalink }}">
+                                <img
+                                src="{{ $image_size_1.RelPermalink }}"
+                                srcset="data:image/gif;base64,R0lGODlhGAAOAIAAAP///wAAACH5BAEAAAAALAAAAAAYAA4AAAIQhI+py+0Po5y02ouz3ry/AgA7"
+                                data-sizes="auto"
+                                data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                                {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                                {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                                class="lazyload" alt="{{ $title }}" title="{{ $title }}" />
+                            </a>
                         {{ else }}
-                            <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ .Title }}" title="{{ .Title }}" />
+                            <img
+                            src="{{ $image_size_1.RelPermalink }}"
+                            srcset="data:image/gif;base64,R0lGODlhGAAOAIAAAP///wAAACH5BAEAAAAALAAAAAAYAA4AAAIQhI+py+0Po5y02ouz3ry/AgA7"
+                            data-sizes="auto"
+                            data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                            {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                            {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                            {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                            class="lazyload" alt="{{ $title }}" title="{{ $title }}" />
                         {{ end }}
 
                     {{ end }}
@@ -65,7 +85,7 @@
         <div class="col col--xs-12 col--lg-grow">
             <div class="row c-illustration-wrap js-filter-illustrations">
 
-                {{ range $index, $element := .Pages | shuffle }}
+                {{ range $index, $element := .Pages }}
                     <div class="col col--xs-12 col--sm-6 c-illustration-col js-filter-illustration-item {{ if modBool (add $index 1) 2 }}is-second{{end}} {{ if modBool (add $index 1) 3 }}is-third{{end}}" data-tags="{{ delimit .Params.tags "," }}">
                         <a class="c-illustration {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
                             <h2 class="c-illustration__title">{{ .Title }}</h2>
@@ -76,11 +96,15 @@
                                 {{ $image_size_3 := .Resize "x800" }}
                                 {{ $image_size_4 := .Resize "x1200" }}
                                 <div class="c-illustration__image">
-                                    <img srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
-                                                 {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
-                                                 {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
-                                                 {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w"
-                                    src="{{ $image_size_1.RelPermalink }}"  alt="{{ $title }}" title="{{ $title }}" height="{{ $image_size_1.Height }}" width="{{ $image_size_1.Width }}" />
+                                    <img
+                                    src="{{ $image_size_1.RelPermalink }}"
+                                    srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
+                                    data-sizes="auto"
+                                    data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                    {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                                    {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                                    {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                                    class="lazyload" alt="{{ $title }}" title="{{ $title }}" />
                                 </div>
                             {{ end }}
                             <i class="c-illustration__icon c-icon c-icon--dark c-icon--css c-icon--css-plus"></i>

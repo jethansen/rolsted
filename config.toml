@@ -10,7 +10,7 @@ DefaultContentLanguage = "da"
 ## IMAGE processing
 [imaging]
     resampleFilter = "Lanczos"
-    quality = 80
+    quality = 70
     anchor = "smart"
 
 ## BEGIN LANGUAGES
