@@ -30,10 +30,23 @@
         <div class="col col--xs-12 l-margin-bottom-md">
             <div class="c-illustration c-illustration--single {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
                 {{ with .Resources.GetMatch "**.jpg" }}
-                    {{ $image := .Resize "x600" }}
-                    {{ $image_retina := .Resize "x1200" }}
+                    {{ $title := (print .Title " by Rolsted") }}
+                    {{ $image_size_1 := .Resize "x400" }}
+                    {{ $image_size_2 := .Resize "x550" }}
+                    {{ $image_size_3 := .Resize "x800" }}
+                    {{ $image_size_4 := .Resize "x1100" }}
+
                     <div class="c-illustration__image">
-                        <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ .Title }}" title="{{ .Title }}" />
+                        <img
+                        src="{{ $image_size_1.RelPermalink }}"
+                        sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
+                        (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
+                        100vw"
+                        srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                        {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                        {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                        {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                        alt="{{ $title }}" title="{{ $title }}" />
                     </div>
                 {{ end }}
                 </div>
@@ -44,8 +57,11 @@
                 {{ $title := (print .Title $byline ) }}
 
                 <div class="col col--xs-12 l-margin-bottom-md {{ if lt .Width .Height }}col--md-6{{ end }}">
-                    {{ $image := .Resize "x900" }}
-                    {{ $image_retina := .Resize "x1800" }}
+                    {{ $image_size_1 := .Resize "x600" }}
+                    {{ $image_size_2 := .Resize "x900" }}
+                    {{ $image_size_3 := .Resize "x1200" }}
+                    {{ $image_size_4 := .Resize "x1800" }}
+
                     {{ if eq .Name "multi" }}
                         
                         {{ $images := .Params.images }}
@@ -54,7 +70,16 @@
                         {{ $delimited := delimit $images $delimiter }}
                         {{ $title := (print $delimited " " $byline) }}
 
-                        <img class="c-image" src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }}" title="{{ $title }}" />
+                        <img
+                        src="{{ $image_size_1.RelPermalink }}"
+                        srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
+                        data-sizes="auto"
+                        data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                        {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                        {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                        {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                        class="c-image lazyload" alt="{{ $title }}" title="{{ $title }}" />
+
                         <div class="t-caption">
 
                             <!-- Loop through illustrations in image -->
@@ -85,7 +110,15 @@
                         </div>
 
                     {{ else }}
-                        <img class="c-image" src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $pageTitle }}" title="{{ $pageTitle }}" />
+                        <img
+                        src="{{ $image_size_1.RelPermalink }}"
+                        srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
+                        data-sizes="auto"
+                        data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                        {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                        {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                        {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                        class="c-image lazyload" alt="{{ $title }}" title="{{ $title }}" />
                         <div class="t-caption">{{ $pageTitle }} {{ $byline }}</div>
                     {{ end }}
                 </div>
@@ -112,10 +145,20 @@
                     <a class="c-illustration c-illustration--sm {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
                         {{ $title := (print .Title " by Rolsted") }}
                         {{ with .Resources.GetMatch "**.jpg" }}
-                            {{ $image := .Resize "x600" }}
-                            {{ $image_retina := .Resize "x1200" }}
+                            {{ $image_size_1 := .Resize "x300" }}
+                            {{ $image_size_2 := .Resize "x600" }}
+                            {{ $image_size_3 := .Resize "x900" }}
+                            {{ $image_size_4 := .Resize "x1200" }}
                             <div class="c-illustration__image">
-                                <img src="{{ $image.RelPermalink }}" srcset="{{ $image_retina.RelPermalink }} {{ $image_retina.Width }}w, {{ $image.RelPermalink }} {{ $image.Width }}w" height="{{ $image.Height }}" alt="{{ $title }}" title="{{ $title }}" />
+                                <img
+                                src="{{ $image_size_1.RelPermalink }}"
+                                srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
+                                data-sizes="auto"
+                                data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
+                                {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
+                                {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
+                                class="lazyload" alt="{{ $title }}" title="{{ $title }}" />
                             </div>
                         {{ end }}
                     </a>

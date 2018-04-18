@@ -37,8 +37,8 @@
                             <a href="{{ $permalink }}">
                                 <img
                                 src="{{ $image_size_1.RelPermalink }}"
-                                sizes="(min-width: 1350px) 1350px,
-                                (min-width: 800px) 800px,
+                                sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
+                                (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
                                 100vw"
                                 srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
                                 {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
@@ -49,8 +49,8 @@
                         {{ else }}
                             <img
                             src="{{ $image_size_1.RelPermalink }}"
-                            sizes="(min-width: 1350px) 1350px,
-                            (min-width: 800px) 800px,
+                            sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
+                            (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
                             100vw"
                             srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
                             {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
