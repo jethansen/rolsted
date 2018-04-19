@@ -1,8 +1,10 @@
 .lazyload,
 .lazyloading {
+   
 
     &,
     + .t-caption {
+        &:extend(.x-transition-slow);
         opacity: 0;
     }
 
@@ -11,7 +13,7 @@
     
     &,
     + .t-caption {
-        &:extend(.x-transition);
+        
         opacity: 1;
     }
 
