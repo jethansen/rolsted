@@ -20,9 +20,13 @@ DefaultContentLanguage = "da"
     copyright = "Ophavsret © 2018 Rolsted. Alle rettigheder forbeholdes."
     title = "Rolsted"
     weight = 1
+    [languages.da.params]
+        seo_keywords = "Geometrisk,Illustration,Linjer,Moderne,Skandinavisk,Nordisk,Minimalistisk"
 
 ## English
 [languages.en]
     copyright = "Copyright © 2018 Rolsted. All rights reserved."
     title = "Rolsted"
     weight = 2
+    [languages.en.params]
+        seo_keywords = "Geometric,Illustration,Lines,Modern,Scandinavia,Nordic, Minimal"
