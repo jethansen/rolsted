@@ -1,5 +1,6 @@
 ## BASE CONFIG
 theme = "rolsted"
+baseURL = "https://www.rolsted.design/"
 DefaultContentLanguage = "da"
 
 ## SET TAXONOMIES
