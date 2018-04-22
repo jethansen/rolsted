@@ -7,12 +7,12 @@
 	{{ if gt $images_len 1 }}
 		{{ range $index, $element := after 1 .  }}
 			{{ $image := .Resize "x1200" }}
-			<meta property="og:image" content="{{ $image.RelPermalink }}" />
+			<meta property="og:image" content="https://www.rolsted.design{{ $image.RelPermalink }}" />
 		{{ end }}
 	{{ else }}
 		{{ range $index, $element := first 1 .  }}
 			{{ $image := .Resize "x1200" }}
-			<meta property="og:image" content="{{ $image.RelPermalink }}" />
+			<meta property="og:image" content="https://www.rolsted.design{{ $image.RelPermalink }}" />
 		{{ end }}
 	{{ end }}
 {{ end }}
