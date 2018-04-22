@@ -75,11 +75,8 @@ $(document).ready(function(){
     // SHARING
     $(document).on('click', '.js-share-facebook', function(e){
         e.preventDefault();
-        console.log('test');
         window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); 
-        
         return false;
-        
     });
 
     // BARBA
@@ -316,10 +313,8 @@ $(document).ready(function(){
                     
                     if (entry.intersectionRatio > 0) {
                         elem[0].play();
-                        console.log('play');
                     } else {
                         elem[0].pause();
-                        console.log('pause');
                     }
                     
                 }
