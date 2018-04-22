@@ -3,13 +3,20 @@
 <meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
 
 <!-- Output images -->
-{{ with .Params.images }}{{ range first 6 . }}
-	<meta itemprop="image" content="{{ . }}">
-{{ end }}{{ end }}
+{{ with .Resources.ByType "image" }}
+	{{ $images_len := len . }}
+	{{ if gt $images_len 1 }}
+		{{ range $index, $element := after 1 .  }}
+			{{ $image := .Resize "x1200" }}
+			<meta itemprop="image" content="{{ $image.Permalink }}">
+		{{ end }}
+	{{ else }}
+		{{ range $index, $element := first 1 .  }}
+			{{ $image := .Resize "x1200" }}
+			<meta itemprop="image" content="{{ $image.Permalink }}">
+		{{ end }}
+	{{ end }}
+{{ end }}
 
 <!-- Output all taxonomies as schema.org keywords -->
 <meta itemprop="keywords" content="{{ range $plural, $terms := .Site.Taxonomies }}{{ range $term, $val := $terms }}{{ printf "%s," $term }}{{ end }}{{ end }}" />
-
-{{if .IsPage}}
-<meta itemprop="wordCount" content="{{ .WordCount }}">
-{{ end }}
