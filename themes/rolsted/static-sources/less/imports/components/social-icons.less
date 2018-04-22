@@ -1,5 +1,6 @@
 .c-social-icons {
     display: inline-block;
+    vertical-align: middle;
 
     a {
         &:extend(.x-transition, .x-extend-hit-area all, .x-haptic-default all); 
@@ -9,6 +10,17 @@
             margin-right: 1em;
         }
 
+    }
+
+}
+
+.c-social-icons__text {
+    float: left;
+    font-size: 0.8em;
+    margin: 0.1em 1.8em 0 0;
+
+    @media @screen-up-to-xl {
+        display: none;
     }
 
 }

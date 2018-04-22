@@ -8,7 +8,7 @@ color = "gray"
 url = "/en/illustrations/mountain-2/"
 
 ## Tags
-tags = ["Abstract", "Nature", "Divided"]
+tags = ["Abstract", "Nature", "Couple"]
 
 ## Resources
 [[resources]]

@@ -5,6 +5,7 @@ title = "Om mig"
 date = 2018-03-25T16:58:30+02:00
 draft = false
 layout = "about"
+header = "inverse"
 
 ## Custom params
 headline = "Håndtegnede illustrationer med rum til det ru og uperfekte"

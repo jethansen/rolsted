@@ -7,7 +7,7 @@ draft = false
 color = "gray"
 
 ## Tags
-tags = ["Abstrakt", "Natur", "Opdelt"]
+tags = ["Abstrakt", "Natur", "Par"]
 
 ## Resources
 [[resources]]

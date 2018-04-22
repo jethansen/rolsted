@@ -6,6 +6,9 @@ date = 2018-03-25T16:58:30+02:00
 draft = false
 url = "/en/illustrations/"
 
+## Custom params
+rel_illustration = "Paper plane"
+
 ## Add to main menu
 [menu.main]
 name = "illustrations"

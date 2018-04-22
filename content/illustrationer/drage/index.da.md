@@ -14,7 +14,7 @@ tags = ["Abstrakt", "Luft"]
   src = "*_multi.jpg"
   name = "multi"
  [resources.params]
-    images = ["Drage","Papirsflyver"]
+    images = ["Drage","Papirfly"]
 
 +++
 

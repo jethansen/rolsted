@@ -10,6 +10,13 @@ url = "/en/illustrations/iceberg/"
 ## Tags
 tags = ["Arctic","Abstract"]
 
+## Resources
+[[resources]]
+  src = "*_multi.jpg"
+  name = "multi"
+ [resources.params]
+    images = ["Iceberg","Baby Penguin"]
+
 +++
 
 There's always more beneath the surface. 

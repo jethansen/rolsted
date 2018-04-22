@@ -8,7 +8,7 @@ draft = false
 ## Custom params
 button_text = "Kontakt mig"
 button_link = "mailto:%61%6E%65%74%74%65%40%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E"
-rel_illustration = "Isbjerg"
+rel_illustration = "Sommerfugl"
 
 ## Add to main menu
 [menu.main]

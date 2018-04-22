@@ -9,6 +9,13 @@ color = "blue"
 ## Tags
 tags = ["Arktis","Abstrakt"]
 
+## Resources
+[[resources]]
+  src = "*_multi.jpg"
+  name = "multi"
+ [resources.params]
+    images = ["Isbjerg","Baby Pingvin"]
+
 +++
 
 Der gemmer sig altid noget under overfladen. 

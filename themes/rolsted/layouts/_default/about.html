@@ -1,17 +1,18 @@
 {{ partial "header" . }}
 
-<div class="grid grid--container grid--container-wider grid--full-height">
-    <div class="row">
-        <div class="col col--xs-12 text--center">
+<div class="grid grid--no-gutters">
+    <div class="row row--no-gutters">
+        <div class="col col--no-gutters col--xs-12 text--center">
             <div class="c-hero-layout-3">
                 <div class="c-hero-layout-3__text">
 
                     <h1 class="c-hero-layout-3__title">{{ partial "headline" . }}</h1>
 
                     <div class="c-hero-layout-3__background">
-                            <video autoplay muted loop playsinline poster="{{ "_assets/video/rolsted.jpg" | relURL}}" class="js-inview" data-inviewtype="video">
-                                <source src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
-                            </video>
+                        <video autoplay muted loop playsinline poster="{{ "_assets/video/rolsted.jpg" | relURL}}" class="js-inview" data-inviewtype="video">
+                            <source src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
+                            <source src="{{ "_assets/video/rolsted.webm" | relURL}}" type="video/webm" />
+                        </video>
                     </div>
 
                 </div>

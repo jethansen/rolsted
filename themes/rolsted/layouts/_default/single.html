@@ -34,24 +34,26 @@
                                     <a href="{{ $permalink }}">
                                         <img
                                         src="{{ $image_size_1.RelPermalink }}"
-                                        srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
-                                        data-sizes="auto"
-                                        data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                        sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
+                                        (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
+                                        100vw"
+                                        srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
                                         {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                                         {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                                         {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                                        class="c-image lazyload" alt="{{ $title }} - {{ $byline }}" />
+                                        alt="{{ $title }} - {{ $byline }}" />
                                     </a>  
                                 {{ else }}
                                     <img
                                     src="{{ $image_size_1.RelPermalink }}"
-                                    srcset="data:image/gif;base64,R0lGODlhAwAEAIAAAP///wAAACH5BAEAAAAALAAAAAADAAQAAAIDhI9WADs="
-                                    data-sizes="auto"
-                                    data-srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
+                                    sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
+                                    (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
+                                    100vw"
+                                    srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
                                     {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                                     {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                                     {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                                    class="c-image lazyload" alt="{{ $title }} - {{ $byline }}" />
+                                    alt="{{ $title }} - {{ $byline }}" />
                                 {{ end }}
                             {{ end }}
                             <div class="t-h1 c-hero-layout-4__mobile-title h-hide-lg">{{ partial "headline" . }}</div>

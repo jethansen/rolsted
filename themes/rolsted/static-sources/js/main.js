@@ -37,16 +37,6 @@ $(document).ready(function(){
 
     });
 
-    // Init Rellax
-    function initRellax() {
-
-        // var rellax = new Rellax('.js-rellax', {
-        //     center: true,
-        //     speed: -0.5
-        // });
-    }
-
-    initRellax();
 
     function checkMarker() {
         
@@ -82,6 +72,12 @@ $(document).ready(function(){
     var elements = document.querySelectorAll('.js-sticky');
     Stickyfill.add(elements);
 
+    // SHARING
+    $(document).on(click, '.js-share-facebook', function(){
+        window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); 
+        return false;
+    });
+
     // BARBA
 
     // Back button
@@ -92,7 +88,11 @@ $(document).ready(function(){
 
     });
 
-    
+    var popping = false;
+
+    window.addEventListener('popstate', function () {
+      popping = true;
+    });
 
     // Init barba
     Barba.Pjax.start();
@@ -106,9 +106,27 @@ $(document).ready(function(){
         scrollToTop = true;
     });
 
+
+    Barba.Dispatcher.on('initStateChange', function() {
+        popping = false;
+    });
+    
+
     // When new page is ready
     Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, rawHTML) {
     
+        // COMMONS VARS
+        var html_new = $(rawHTML);
+
+        // UDATE THEME
+        
+        // Vars
+        var header_class = 'js-header';
+        var header_classlist = html_new.find('.' + header_class).attr('class');
+        
+        // Update theme
+        $('.' + header_class).attr('class', header_classlist);
+
         // UPDATE NAVIGATION
     
         // Vars
@@ -117,7 +135,6 @@ $(document).ready(function(){
         var current_class = 'is-active';
         var animation_class = 'is-animating'
         var animation_reverse_class = 'is-animating-reverse'
-        var html_new = $(rawHTML);
                 
         // Old navigation vars
         var nav_current = $('.' + nav_class);
@@ -126,8 +143,12 @@ $(document).ready(function(){
 
         // New navigation vars
         var nav_new = html_new.find('.' + nav_class);
+        var nav_new_classes = nav_new.attr('class');
         var active_new = nav_new.find('.' + current_class);
         var active_new_index = active_new.index();
+
+        // Change theme
+        
 
         if (active_new.length !== 0) {
 
@@ -168,63 +189,70 @@ $(document).ready(function(){
         // INIT INVIEW
         initInview();
 
-        // INIT RELLAX
-        initRellax();
 
     });
 
-    var FadeTransition = Barba.BaseTransition.extend({
+    var HideShowTransition = Barba.BaseTransition.extend({
         start: function() {
-        /**
-         * This function is automatically called as soon the Transition starts
-         * this.newContainerLoading is a Promise for the loading of the new container
-         * (Barba.js also comes with an handy Promise polyfill!)
-         */
-    
-        // As soon the loading is finished and the old page is faded out, let's fade the new page
-        Promise
-            .all([this.newContainerLoading, this.fadeOut()])
-            .then(this.fadeIn.bind(this));
+          this.newContainerLoading.then(this.finish.bind(this));
         },
-    
-        fadeOut: function() {
-        /**
-         * this.oldContainer is the HTMLElement of the old Container
-         */
-    
-        return $(this.oldContainer).animate({ opacity: 0 }, 400).promise();
+      
+        finish: function() {
+          document.body.scrollTop = 0;
+          this.done();
+        }
+      });
+
+    var FadeTransition = Barba.BaseTransition.extend({
+        
+        start: function() {
+
+            /**
+             * This function is automatically called as soon the Transition starts
+             * this.newContainerLoading is a Promise for the loading of the new container
+             * (Barba.js also comes with an handy Promise polyfill!)
+             */
+        
+            // As soon the loading is finished and the old page is faded out, let's fade the new page
+            Promise
+                .all([this.newContainerLoading, this.fadeOut()])
+                .then(this.fadeIn.bind(this));
+            },
+        
+            fadeOut: function() {
+            /**
+             * this.oldContainer is the HTMLElement of the old Container
+             */
+        
+            return $('.js-overlay').fadeIn(150).promise();
+
         },
     
         fadeIn: function() {
-        /**
-         * this.newContainer is the HTMLElement of the new Container
-         * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
-         * Please note, newContainer is available just after newContainerLoading is resolved!
-         */
-    
-        var _this = this;
-        var $el = $(this.newContainer);
 
-        if (scrollToTop === true) {
-            window.scrollTo(0,0);
-            scrollToTop = false;
-        }
-    
-        $(this.oldContainer).hide();
-    
-        $el.css({
-            visibility : 'visible',
-            opacity : 0
-        });
-    
-        $el.animate({ opacity: 1 }, 800, function() {
             /**
-             * Do not forget to call .done() as soon your transition is finished!
-             * .done() will automatically remove from the DOM the old Container
+             * this.newContainer is the HTMLElement of the new Container
+             * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
+             * Please note, newContainer is available just after newContainerLoading is resolved!
              */
-    
+        
+            var _this = this;
+            var $el = $(this.newContainer);
+
+            if (scrollToTop === true) {
+                window.scrollTo(0,0);
+                scrollToTop = false;
+            }
+            
+            // Hide the old container from the DOM
+            $(this.oldContainer).hide();
+
+            $('.js-overlay').fadeOut(700, function(){
+                
+            });
+
             _this.done();
-        });
+
         }
     });
     
@@ -233,12 +261,7 @@ $(document).ready(function(){
      */
     
     Barba.Pjax.getTransition = function() {
-        /**
-         * Here you can use your own logic!
-         * For example you can use different Transition based on the current page or link...
-         */
-    
-        return FadeTransition;
+        return popping ? HideShowTransition : FadeTransition;
     };
 
     // INVIEW STUFF

@@ -5,6 +5,6 @@
 // @codekit-append  "scroll-restoration-polyfill.browser.js"
 // @codekit-append  "jquery.easing.1.3.js"
 // @codekit-append  "lazysizes.min.js"
-// @codekit-append  "rellax.js"
+// @codekit-append  "anime.min.js"
 // @codekit-append  "functions.js"
-// @codekit-append  "main.js"
+// @codekit-append  "main.js" 

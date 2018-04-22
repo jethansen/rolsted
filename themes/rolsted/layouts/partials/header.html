@@ -8,25 +8,29 @@
 </head>
 <body>
 
-    <main id="main-scrollbar" data-scrollbar>
+    <div id="barba-wrapper">
 
-        <header class="c-header grid">
-            <div class="row row--xs-center">
-                <div class="col col--lg-3">
-                    <a class="c-header__logo" href="{{ if eq .Lang "da" }}/illustrationer{{ else }}/en/illustrations{{end}}">
-                        {{ partial "svg/logo" . }}
-                    </a>
+        <main id="main-scrollbar" data-scrollbar>
+            
+            {{ $header := .Params.header }}
+            <header class="c-header js-header {{ if eq $header "inverse" }}c-header--inverse{{ end }} grid">
+                <div class="row row--xs-center">
+                    <div class="col col--lg-3">
+                        <a class="c-header__logo" href="{{ if eq .Lang "da" }}/illustrationer{{ else }}/en/illustrations{{end}}">
+                            {{ partial "svg/logo" . }}
+                        </a>
+                    </div>
+                    <div class="col col--lg-6">
+                        {{ partial "navigation" . }}
+                    </div>
+                    <div class="col col--lg-3 text--right h-hide-up-to-lg">
+                        {{ partial "social-icons" . }}
+                    </div>
                 </div>
-                <div class="col col--lg-6">
-                    {{ partial "navigation" . }}
-                </div>
-                <div class="col col--lg-3 text--right h-hide-up-to-lg">
-                    {{ partial "social-icons" . }}
-                </div>
-            </div>
 
-        </header>
+            </header>
 
-        <div id="barba-wrapper">
+            <div class="barba-overlay js-overlay"></div>
+
             <div class="barba-container">
                 
