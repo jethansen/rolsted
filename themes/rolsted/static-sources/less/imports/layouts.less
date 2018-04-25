@@ -171,3 +171,37 @@
 .l-margin-right-sm { margin-right: @padding-sm !important; }
 .l-margin-right-md { margin-right: @padding-md !important; }
 .l-margin-none { margin: 0 !important; }
+
+/* Text align */
+
+.align-left() { text-align:left; }
+.align-center() { text-align:center; }
+.align-right() { text-align:right; }
+
+.l-align-left-xs { .align-left(); }
+.l-align-center-xs { .align-center(); }
+.l-align-right-xs { .align-right(); }
+
+@media @screen-sm {
+    .l-align-left-sm { .align-left(); }
+    .l-align-center-sm { .align-center(); }
+    .l-align-right-sm { .align-right(); }
+}
+
+@media @screen-md {
+    .l-align-left-md { .align-left(); }
+    .l-align-center-md { .align-center(); }
+    .l-align-right-md { .align-right(); }
+}
+
+@media @screen-lg {
+    .l-align-left-lg { .align-left(); }
+    .l-align-center-lg { .align-center(); }
+    .l-align-right-lg { .align-right(); }
+}
+
+@media @screen-xl {
+    .l-align-left-xl { .align-left(); }
+    .l-align-center-xl { .align-center(); }
+    .l-align-right-xl { .align-right(); }
+}

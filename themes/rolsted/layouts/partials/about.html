@@ -1,19 +1,19 @@
-<div class="grid grid--container grid--container-wide l-padding-md">
+<div class="container-fluid wrap wrap--wide l-padding-md">
                                                 
-    <div class="row row--xs-space-around h-hide-md">
-        <div class="col col--xs-11 col--sm-9">
+    <div class="row around-xs h-hide-md">
+        <div class="col-xs-11 col-sm-9">
             <h2>{{ i18n "about-me-headline" | safeHTML }}</h2>
         </div>
     </div>
-    <div class="row row--md-reverse row--xs-space-around row--lg-space-between">
-        <div class="col col--xs-12 col--md-6 col--up-to-md-space-below c-about-video-wrap">
+    <div class="row reverse-md around-xs between-md">
+        <div class="col-xs-12 col-md-6 add-space-below-up-to-md c-about-video-wrap">
             <div class="c-about-video">
                 <!-- <video autoplay muted loop playsinline poster="{{ "_assets/video/rolsted.jpg" | relURL}}" class="js-inview" data-inviewtype="video">
                     <source src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
                 </video> -->
             </div>
         </div>
-        <div class="col col--xs-11 col--sm-9 col--md-5 l-padding-sm">
+        <div class="col-xs-11 col-sm-9 col-md-5 l-padding-sm">
             <h2 class="l-margin-bottom-md h-hide-up-to-md">{{ i18n "about-me-headline" | safeHTML }}</h2>
             <p>{{ i18n "about-me-text" | safeHTML }}</p>
             <img class="c-signature l-margin-top-sm" src="{{ "_assets/images/signature.png" | relURL}}" width="116" height="52" />

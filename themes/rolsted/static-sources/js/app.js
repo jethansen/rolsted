@@ -1,4 +1,3 @@
-// @codekit-prepend "intersection-observer.js"
 // @codekit-append  "modernizr-custom.js"
 // @codekit-append  "stickyfill.min.js"
 // @codekit-append  "barba.js"
@@ -7,5 +6,6 @@
 // @codekit-append  "lazysizes.min.js"
 // @codekit-append  "pinit.js"
 // @codekit-append  "anime.min.js"
+// @codekit-prepend "intersection-observer.js"
 // @codekit-append  "functions.js"
 // @codekit-append  "main.js" 

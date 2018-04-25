@@ -14,9 +14,9 @@
 
 {{ end }}
 
-<div class="grid grid--container grid--container-wider grid--full-height">
+<section class="container-fluid wrap wrap--wider">
     <div class="row">
-        <div class="col col--xs-12 text--center">
+        <div class="col-xs-12 l-align-center-xs">
             <div class="c-hero-layout-1">
                 <div class="c-hero-layout-1__text">
                     <div class="t-lead">
@@ -66,12 +66,12 @@
     </div>
 </div>
 
-<section class="grid grid--container grid--container grid--container-wide l-padding-xl" id="illustrations">
+<section class="container-fluid wrap wrap--wide l-padding-xl" id="illustrations">
     
     <div class="row">
         
         <!-- Filters -->
-        <aside class="col col--xs-12 col--lg-auto c-filter">
+        <aside class="col-xs-12 auto-lg c-filter js-sticky">
 
             <div class="c-filter__wrap">
                 <ul class="c-filter__list js-filter-nav">
@@ -84,11 +84,11 @@
    
         </aside>
 
-        <div class="col col--xs-12 col--lg-grow">
+        <div class="col-xs-12 grow-lg">
             <div class="row c-illustration-wrap js-filter-illustrations">
 
                 {{ range $index, $element := .Pages }}
-                    <div class="col col--xs-12 col--sm-6 c-illustration-col js-filter-illustration-item {{ if modBool (add $index 1) 2 }}is-second{{end}} {{ if modBool (add $index 1) 3 }}is-third{{end}} c-inview js-inview" data-tags="{{ delimit .Params.tags "," }}" data-inviewonce=true data-inviewtype="default">
+                    <div class="col-xs-12 col-md-6 c-illustration-col js-filter-illustration-item {{ if modBool (add $index 1) 2 }}is-second{{end}} {{ if modBool (add $index 1) 3 }}is-third{{end}} c-inview js-inview" data-tags="{{ delimit .Params.tags "," }}" data-inviewtype="default" data-inviewonce=true>
                         <a class="c-illustration {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }} c-inview__el c-inview__el--slide-up" href="{{ .Permalink }}" >
                             <h2 class="c-illustration__title c-inview__el c-inview__el--slide-up c-inview__el--delay-2" >{{ .Title }}</h2>
                             {{ $title := (print .Title " by Rolsted") }}
@@ -97,7 +97,7 @@
                                 {{ $image_size_2 := .Resize "x600" }}
                                 {{ $image_size_3 := .Resize "x800" }}
                                 {{ $image_size_4 := .Resize "x1200" }}
-                                <div class="c-illustration__image c-inview__el">
+                                <div class="c-illustration__image">
                                     <div class="c-illustration__image-inner">
                                         <img
                                         src="{{ $image_size_1.RelPermalink }}"

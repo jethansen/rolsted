@@ -1,10 +1,10 @@
                     <footer class="c-footer l-margin-top-xl">
 
                         <div class="h-background-color-gray-background">
-                            <div class="grid grid--container grid--container-wide l-padding-xl">
+                            <div class="container-fluid wrap l-padding-xl">
 
-                                <div class="row row--xs-space-around row--md-space-between text--xs-center text--md-left">
-                                    <div class="col col--xs-11 col--sm-8 col--md-3 col--up-to-md-space-below">
+                                <div class="row around-xs between-md l-align-center-xs l-align-left-md">
+                                    <div class="col-xs-11 col-sm-8 col-md-3 add-space-below-up-to-md">
                                         {{ partial "divider-zig-zag" }}
                                         <h3 class="l-margin-top-sm l-margin-bottom-sm">{{ i18n "follow-me" }}</h3>
                                         <div class="c-footer__content">
@@ -14,7 +14,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col col--xs-11 col--sm-8 col--md-4 col--up-to-md-space-below text--xs-center text--md-left">
+                                    <div class="col-xs-11 col-sm-8 col-md-3 add-space-below-up-to-md">
                                         {{ partial "divider-zig-zag" }}
                                         <h3 class="l-margin-top-sm l-margin-bottom-sm">{{ i18n "coorporation" }}</h3>
                                         <div class="c-footer__content">
@@ -23,7 +23,7 @@
                                             
                                         </div>
                                     </div>
-                                    <div class="col col--xs-11 col--sm-8 col--md-3 text--md-left">
+                                    <div class="col-xs-11 col-sm-8 col-md-3 add-space-below-up-to-md">
                                         {{ partial "divider-zig-zag" }}
                                         <h3 class="l-margin-top-sm l-margin-bottom-sm">{{ i18n "contact-me" }}</h3>
                                         <div class="c-footer__content text">
@@ -37,9 +37,9 @@
                         </div>
 
                         
-                        <div class="grid grid--container grid--container-wide l-padding-md">
-                            <div class="row row--xs-space-around">
-                                <div class="col col--xs-11 col--md-4 text--xs-center text--md-left">
+                        <div class="container-fluid l-padding-md">
+                            <div class="row around-xs">
+                                <div class="col-xs-11 col-md-4 l-align-center-xs l-align-left-md">
                                     <div class="c-footer__content"> 
                                         {{ if .IsTranslated }}
                                             {{ range .Translations }}
@@ -50,7 +50,7 @@
                                         {{ end }}
                                     </div>
                                 </div>
-                                <div class="col col--xs-11 col--md-8 text--xs-center text--md-right">  
+                                <div class="col-xs-11 col-md-8 l-align-center-xs l-align-right-md">  
                                     {{ $.Param "copyright" }}
                                 </div>
                             </div>
