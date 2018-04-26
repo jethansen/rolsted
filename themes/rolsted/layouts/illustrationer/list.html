@@ -14,16 +14,15 @@
 
 {{ end }}
 
-<section class="container-fluid wrap wrap--wider">
-    <div class="row">
-        <div class="col-xs-12 l-align-center-xs">
-            <div class="c-hero-layout-1">
-                <div class="c-hero-layout-1__text">
-                    <div class="t-lead">
-                        {{.Content}}
-                        <a href="#illustrations" class="c-hero-layout-1__mouse no-barba js-scroll-to-anchor h-hide-up-to-lg"></a>
-                    </div>
+<section>
+        <div class="row row--nogutter-xs c-hero-layout-1">
+            <div class="col-xs-12 col-xl-6 c-hero-layout-1__content">
+                <div class="container-fluid c-hero-layout-1__top l-align-center-xs l-align-left-xl">
+                    {{.Content}}
+                    <a href="#illustrations" class="c-hero-layout-1__mouse no-barba js-scroll-to-anchor l-margin-top-md h-hide-up-to-lg"></a>
                 </div>
+            </div>
+            <div class="col-xs-12 col-xl-6">
                 <div class="c-hero-layout-1__image">
                     {{ with .Resources.GetMatch "**.jpg" }}
                         
@@ -63,10 +62,9 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<section class="container-fluid wrap wrap--wide l-padding-xl" id="illustrations">
+<section class="container-fluid wrap wrap--wide l-padding-bottom-xl" id="illustrations">
     
     <div class="row">
         

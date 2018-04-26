@@ -1,8 +1,8 @@
 {{ partial "header" . }}
 
-<div class="grid grid--no-gutters">
-    <div class="row row--no-gutters">
-        <div class="col col--no-gutters col--xs-12 text--center">
+<div class="">
+    <div class="row">
+        <div class="col-xs-12 no l-align-center-xs">
             <div class="c-hero-layout-3">
                 <div class="c-hero-layout-3__text">
 
@@ -22,15 +22,15 @@
     </div>
 </div>
 
-<section class="grid grid--container grid--container grid--container-wide l-padding-bottom-xl">
+<div class="container-fluid wrap l-padding-bottom-xl">
     
-    <div class="row row--xs-space-around">
-        <div class="col col--xs-11 col--sm-8 col--lg-7 col--xl-6">
+    <div class="row around-xs">
+        <div class="col-xs-11 col-sm-8 col-lg-7 col-xl-6">
             <div class="c-avatar c-avatar--centered l-margin-bottom-md" style="background-image: url({{ "_assets/images/rolsted_profil.jpg" | relURL}});"></div>
                 {{ .Content }}
         </div>
     </div>
 
-</section>
+</div>
 
 {{ partial "footer" . }}

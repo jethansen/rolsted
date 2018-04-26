@@ -322,7 +322,7 @@ $(document).ready(function(){
                 // Default element
                 if (type === 'default') {
                     
-                    if (entry.intersectionRatio > 0.25) {
+                    if (entry.intersectionRatio > 0) {
                         elem.addClass('is-inview');
                         
                         // If only one inview events is needed

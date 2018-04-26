@@ -3,9 +3,13 @@
 {{ $pageTitle := .Title }}
 {{ $byline := i18n "by-rolsted" }}
 
-<div class="grid grid--container">
+<div class="c-fixed-navbar">
+    Del på: <a href=""></a>
+</div>
+
+<div class="container-fluid wrap">
     <div class="row">
-        <div class="col col--xs-12">
+        <div class="col-xs-12">
             <div class="c-hero-layout-2">
                 <div class="c-hero-layout-2__content">
                     <h1 class="c-hero-layout-2__title">{{ partial "headline" . }}</h1>
@@ -25,9 +29,9 @@
     </div>
 </div>
 
-<div class="grid grid--container grid--container-wide">
+<div class="container-fluid wrap--wider">
     <div class="row">
-        <div class="col col--xs-12 l-margin-bottom-md">
+        <div class="col-xs-12 l-margin-bottom-md">
             <div class="c-illustration c-illustration--single {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
                 {{ with .Resources.GetMatch "**.jpg" }}
                     {{ $title := (print .Title " by Rolsted") }}
@@ -58,7 +62,7 @@
             {{ range $index, $element := after 1 .  }}
                 {{ $title := (print .Title $byline ) }}
 
-                <div class="col col--xs-12 l-margin-bottom-md {{ if lt .Width .Height }}col--md-6{{ end }}">
+                <div class="col-xs-12 l-margin-bottom-md {{ if lt .Width .Height }}col-md-6{{ end }}">
                     {{ $image_size_1 := .Resize "x600" }}
                     {{ $image_size_2 := .Resize "x900" }}
                     {{ $image_size_3 := .Resize "x1200" }}
@@ -134,9 +138,9 @@
 </div>
 
 <!-- Fetch 6 random illustrations -->
-<div class="grid grid--container grid--container-wide l-padding-xl">
+<div class="container-fluid wrap--wide l-padding-xl">
     <div class="row">
-        <div class="col col--xs-12">
+        <div class="col-xs-12">
             <h3>{{ i18n "more-illustrations" }}</h3>
         </div>
     </div>
@@ -146,7 +150,7 @@
         {{ range $index, $element := $randomIllustrations }}
             {{ $i := $.Scratch.Get "i" }}
             {{ if not (or (eq .Title $pageTitle) (gt $i 6) ) }}
-                <div class="col col--xs-6 col--md-4 c-inview js-inview" data-inviewonce=true data-inviewtype="default">
+                <div class="col-xs-6 col-md-4 c-inview js-inview" data-inviewonce=true data-inviewtype="default">
                     <a class="c-illustration c-illustration--sm {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }} c-inview__el c-inview__el--slide-up" href="{{ .Permalink }}">
                         {{ $title := (print .Title " by Rolsted") }}
                         {{ with .Resources.GetMatch "**.jpg" }}
@@ -179,7 +183,7 @@
         {{ end }}
     </div>
     <div class="row">
-        <div class="col col--xs-12 text--center">
+        <div class="col-xs-12 l-align-center-xs">
             <a href="{{ if eq .Lang "da" }}/illustrationer{{ else }}/en/illustrations{{end}}" class="c-button c-button--plus l-margin-top-lg">{{ i18n "view-all" }}</a>
         </div>
     </div>

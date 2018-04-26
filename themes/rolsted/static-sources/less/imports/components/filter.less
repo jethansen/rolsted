@@ -29,6 +29,11 @@
         }
 
     }
+
+    @media @screen-xxs-only {
+        margin: 0 -2rem;
+    }
+    
     
     @media @screen-lg {
         position: -webkit-sticky;
@@ -88,7 +93,7 @@
         content: '';
         position: absolute;
         z-index: 1;
-        height: 1;
+        height: 1px;
         background: @color-gray-dark;
     }
 
@@ -118,7 +123,7 @@
     }
 
     @media @screen-lg {
-        padding: 0.3em 0;
+        padding: 0.3em 0 0.3em 1rem;
         width: 100%;
         text-align: right;
 
@@ -131,7 +136,7 @@
             .transition(all 0.7s cubic-bezier(1,.03,.37,.97));
             bottom: 0.9em;
             width: 100%;
-            right: 2rem;
+            right: 0;
             z-index: -1;
             .transform-origin(top right);
         }
