@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html class="cta-is-hidden">
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
         <main>
             
             {{ $header := .Params.header }}
-            <header class="c-header js-header {{ if eq $header "inverse" }}c-header--inverse{{ end }} container-fluid">
+            <header class="c-header js-header {{ if eq $header "inverse" }}c-header--inverse{{ end }} container-fluid js-inview" data-inviewtype="header">
                 <div class="row middle-xs">
                     <div class="col-xs-12 col-lg-3">
                         <a class="c-header__logo" href="{{ if eq .Lang "da" }}/illustrationer{{ else }}/en/illustrations{{end}}">

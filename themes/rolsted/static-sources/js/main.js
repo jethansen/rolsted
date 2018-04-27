@@ -319,6 +319,17 @@ $(document).ready(function(){
                     
                 }
 
+                // Header element
+                if (type === 'header') {
+                    
+                    if (entry.intersectionRatio > 0) {
+                        $(document).addClass('cta-is-hidden');
+                    } else {
+                        $(document).removeClass('cta-is-hidden');
+                    }
+                    
+                }
+
                 // Default element
                 if (type === 'default') {
                     
