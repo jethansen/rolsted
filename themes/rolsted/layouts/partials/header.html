@@ -6,6 +6,7 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="{{ "_assets/css/main.css" | relURL}}">
      <title>{{ .Site.Title }} ▽ {{ .Title }}</title>
+     {{ partial "favicons" . }}
      {{ partial "seo/schema" . }}
      {{ partial "seo/open_graph" . }}
 </head>

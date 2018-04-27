@@ -40,9 +40,10 @@
 /* STYLES */
 
 .c-hero-layout-1 {
-    padding-top: 6.5em;    
-    
+    padding-top: 8em;    
+
     @media @screen-lg {
+        padding-top: 6.5em;
         min-height: 100vh;
     }
 
@@ -52,23 +53,38 @@
    .display-flex();
     .flex-direction(column);
     .justify-content(space-around);
+
+    @media @screen-lg-only {
+        .justify-content(flex-end);
+    }
+
 }
 
 
 .c-hero-layout-1__top {
     margin: 0 auto;
     color: @color-gray-dark;
+    font-size: 1.1em;
+    z-index: 2;
+
+    @media @screen-sm {
+        width: 80%;
+    }
     
-    @media @screen-up-to-xl {
+    @media @screen-up-to-lg {
         padding-top: 3em;
-        padding-bottom: 5em;
+        padding-bottom: 3em;
+    }
+
+    @media @screen-lg-only {
+        padding: 2.5rem;
+        background: @color-gray-background;
+        margin-bottom: 2rem;
     }
 
     @media @screen-xl {
-        width: 80%;
-        max-width: 500px;
+        max-width: 500px; 
         padding: 0 2rem;
-        font-size: 1.1em;
     }
 
     @media @screen-xxl {
@@ -92,13 +108,19 @@
         width: 100%;
         height: 100%;
     }
+
+    @media @screen-lg-only {
+        float: right;
+        width: 170%;
+        z-index: 1;
+    }
     
-    @media @screen-up-to-xl {
+    @media @screen-up-to-lg {
 
         &:before {
             content: '';
             display: block;
-            padding-top: 80%;
+            padding-top: 100%;
         }
         
     }
@@ -130,10 +152,10 @@
     }
 
     .touchevents & {
-        opacity: 0;
+        display: none;
     }
 
-    @media @screen-up-to-xl {
+    @media @screen-up-to-lg {
         display: none;
     }
 

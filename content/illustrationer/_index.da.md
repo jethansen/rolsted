@@ -15,4 +15,4 @@ weight = 1
 
 +++
 
-Rolsted  er danske, håndtegnede illustrationer baseret på enkle streger og geometriske former.  Tegningerne er skabt direkte fra pen til papir ud fra min personlige idé om, at der skal være plads til både det simple, uperfekte og ru. Se illustrationerne herunder eller læs mere om mig {{% class "c-link" %}}[her]({{< relref "/om-mig.da.md" >}}){{% /class %}}
+Rolsted er danske, håndtegnede illustrationer baseret på enkle streger og geometriske former. Tegningerne er skabt direkte fra pen til papir ud fra min personlige idé om, at der skal være plads til både det simple, uperfekte og ru. Se illustrationerne herunder eller læs mere om mig her {{% class "c-link" %}}[her]({{< relref "/om-mig.da.md" >}}){{% /class %}}

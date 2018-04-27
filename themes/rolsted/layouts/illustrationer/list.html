@@ -15,14 +15,8 @@
 {{ end }}
 
 <section>
-        <div class="row row--nogutter-xs c-hero-layout-1 c-inview js-inview" data-inviewtype="default" data-inviewonce=true>
-            <div class="col-xs-12 col-xl-6 c-hero-layout-1__content">
-                <div class="container-fluid c-hero-layout-1__top l-align-center-xs l-align-left-xl c-inview__el c-inview__el--slide-right" >
-                    {{.Content}}
-                    <a href="#illustrations" class="c-hero-layout-1__mouse no-barba js-scroll-to-anchor l-margin-top-md h-hide-up-to-lg"></a>
-                </div>
-            </div>
-            <div class="col-xs-12 col-xl-6">
+        <div class="row reverse-md row--nogutter-xs c-hero-layout-1 c-inview js-inview" data-inviewtype="default" data-inviewonce=true>
+            <div class="col-xs-12 col-lg-6">
                 <div class="c-hero-layout-1__image">
                     {{ with .Resources.GetMatch "**.jpg" }}
                         
@@ -59,6 +53,12 @@
                         {{ end }}
 
                     {{ end }}
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-6 c-hero-layout-1__content">
+                <div class="container-fluid c-hero-layout-1__top l-align-center-xs l-align-left-lg c-inview__el c-inview__el--slide-right" >
+                    {{.Content}}
+                    <a href="#illustrations" class="c-hero-layout-1__mouse no-barba js-scroll-to-anchor l-margin-top-md h-hide-up-to-lg"></a>
                 </div>
             </div>
         </div>
