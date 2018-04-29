@@ -563,7 +563,7 @@ $(document).ready(function(){
                     q(".js-carousel").appendChild(q(".js-carousel img:first-child"));
                 };
     
-            }, 4000);
+            }, 3000);
 
         }
 
