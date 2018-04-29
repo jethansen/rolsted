@@ -28,3 +28,17 @@ HUGO_VERSION = "0.38.2"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
+
+[[redirects]]
+  from = "/"
+  to = "/illustrationer"
+  status = 301
+  force = true
+  conditions = {Language = ["da"]}
+
+[[redirects]]
+  from = "/en/"
+  to = "/en/illustrations"
+  status = 301
+  force = true
+  conditions = {Language = ["en"]}
