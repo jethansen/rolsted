@@ -5,7 +5,13 @@
     bottom: 0;
     right: 0;
     background: white;
-    z-index: 9;
+    z-index: 9999;
     display: none;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    html.page-is-loading &.show-loader {
+        background: white url(/_assets/images/loader.gif) no-repeat center center;
+    }
 
 }

@@ -14,13 +14,13 @@
 
 {{ end }}
 
-<div class="grid grid--container grid--container grid--full-height">
+<div class="container-fluid wrap wrap--wide">
     <div class="row">
-        <div class="col col--xs-12">
-            <div class="c-hero-layout-4">
-                <div class="row row--xs-space-around row--md-reverse">
-                    <div class="col col--xs-12 col--lg-6 col--lg-offset-1 col--xl-5 col--xl-offset-1 col--up-to-lg-space-below">
-                        <div class="c-hero-layout-4__image text--xs-center">
+        <div class="col-xs-12">
+            <div class="c-hero-layout-4 js-inview c-inview" data-inviewtype="default" data-inviewonce="true">
+                <div class="row space-around-xs reverse-md">
+                    <div class="col-xs-12 col-lg-6 col-lg-offset-1 col-xl-5 add-space-below-up-to-lg c-inview__el c-inview__el--fade-in">
+                        <div class="c-hero-layout-4__image l-align-center-xs">
                             {{ with .Resources.GetMatch "**.jpg" }}
                                     
                                 {{ $image_size_1 := .Resize "x600" }}
@@ -65,7 +65,7 @@
                             </div>
                         {{ end }}
                     </div>
-                    <div class="col col--xs-11 col--sm-8 col--lg-5 col--xl-6">
+                    <div class="col-xs-11 col-sm-8 col-lg-5 col-xl-6 c-inview__el c-inview__el--slide-right">
                         <h1 class="c-hero-layout-4__title h-hide-up-to-lg">{{ partial "headline" . }}</h1>
                         {{ .Content }}
                         {{ if and (isset .Params "button_text") (isset .Params "button_link") }}

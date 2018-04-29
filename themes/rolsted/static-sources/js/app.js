@@ -1,6 +1,5 @@
 // @codekit-append  "modernizr-custom.js"
 // @codekit-append  "stickyfill.min.js"
-// @codekit-append  "pace.min.js"
 // @codekit-append  "barba.js"
 // @codekit-append  "scroll-restoration-polyfill.browser.js"
 // @codekit-append  "jquery.easing.1.3.js"

@@ -109,8 +109,8 @@ $(document).ready(function(){
     Barba.Dispatcher.on('linkClicked', function() {
         scrollToTop = true;
 
-            // Remove CTA nvbar
-            $('html').addClass('cta-is-hidden');
+        // Add loading class from HTML (used for disabling transitions on some elements)
+        $('html').addClass('page-is-loading');
 
     });
 
@@ -231,7 +231,18 @@ $(document).ready(function(){
              * this.oldContainer is the HTMLElement of the old Container
              */
         
-            return $('.js-overlay').fadeIn(200).promise();
+            return $('.js-overlay').fadeIn(150, function(){
+
+                // Remove CTA nvbar
+                $('html').addClass('cta-is-hidden');
+
+                var $t = $(this);
+
+                setTimeout(function(){
+                    $t.addClass('show-loader');
+                }, 300);
+                
+            }).promise();
 
         },
     
@@ -253,9 +264,12 @@ $(document).ready(function(){
             
             // Hide the old container from the DOM
             $(this.oldContainer).hide();
+            
+            // Remove loading class from HTML (used for disabling transitions on some elements)
+            $('html').removeClass('page-is-loading');
 
             $('.js-overlay').fadeOut(500, function(){
-                
+                $(this).removeClass('show-loader');
             });
 
             _this.done();
@@ -411,6 +425,11 @@ $(document).ready(function(){
             var tag = thisItem.attr('data-target');
             var targetItems = illustrationItems.filter('[data-tags*=' + tag + ']');
 
+            // Go to top
+            $('html, body').animate({
+                scrollTop: $('#illustrations').offset().top
+            }, 500, "easeOutQuint");
+
             // If All
             if (tag === 'All') {
                 targetItems = illustrationItems;
@@ -484,7 +503,7 @@ $(document).ready(function(){
        
         setInterval(function(){
             
-            if (carouselPaused !== true) {
+            if (carouselPaused !== true && $('.js-carousel').length !== 0) {
                 var q = function(sel) { return document.querySelector(sel); }   
                 q(".js-carousel").appendChild(q(".js-carousel img:first-child"));
             };
