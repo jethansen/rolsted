@@ -6,7 +6,7 @@
 <div class="c-fixed-navbar">
 
         <div class="c-fixed-navbar__inner wrap">
-            <a href="https://www.pinterest.com/pin/create/button/?description={{ i18n "illustration-default-description" }}" target="_blank" data-pin-do="buttonBookmark" data-pin-custom=true class="c-fixed-navbar__item">
+            <a href="https://www.pinterest.com/pin/create/button/" target="_blank" data-pin-do="buttonBookmark" data-pin-custom=true class="c-fixed-navbar__item">
                 <i class="c-icon c-icon--xs c-icon--dark">
                     {{ partial "svg/pinterest" }}
                 </i>
@@ -72,7 +72,7 @@
                             {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                             {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                             {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                            alt="{{ $title }}" />
+                            alt="{{ $title }}" data-pin-description="{{ i18n "illustration-default-description" }}" />
                         </div>
                     </div>
                 {{ end }}
@@ -81,7 +81,7 @@
         </div>
         {{ with .Resources.ByType "image" }}
             {{ range $index, $element := after 1 .  }}
-                {{ $title := (print .Title $byline ) }}
+                {{ $title := (print .Title " by Rolsted") }}
 
                 <div class="col-xs-12 l-margin-bottom-md {{ if lt .Width .Height }}col-md-6{{ end }}">
                     {{ $image_size_1 := .Resize "x600" }}
@@ -106,7 +106,7 @@
                         {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                         {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                         {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                        class="c-image lazyload" alt="{{ $title }}" width="{{ $image_size_3.Width }}" height="{{ $image_size_3.Height }}" />
+                        class="c-image lazyload" alt="{{ $title }}" width="{{ $image_size_3.Width }}" height="{{ $image_size_3.Height }}" data-pin-description="{{ i18n "illustration-default-description" }}" />
 
                         <div class="t-caption">
 
@@ -147,7 +147,7 @@
                         {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                         {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                         {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                        class="c-image lazyload" alt="{{ $title }}" width="{{ $image_size_3.Width }}" height="{{ $image_size_3.Height }}" />
+                        class="c-image lazyload" alt="{{ $title }}" width="{{ $image_size_3.Width }}" height="{{ $image_size_3.Height }}" data-pin-description="{{ i18n "illustration-default-description" }}" />
                         <div class="t-caption">{{ $pageTitle }} {{ $byline }}</div>
                         
                     {{ end }}
@@ -189,7 +189,7 @@
                                     {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                                     {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                                     {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                                    class="lazyload" alt="{{ $title }}" title="{{ $title }}"  />
+                                    class="lazyload" alt="{{ $title }}" title="{{ $title }}" data-pin-description="{{ i18n "illustration-default-description" }}"  />
                                 </div>
                             </div>
                         {{ end }}
