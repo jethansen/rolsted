@@ -71,39 +71,6 @@ $(document).ready(function(){
 
     checkMarker();
 
-    // PINTEREST
-    function updatePins () {
-        var Pinterest = {
-            load: function(callback) {
-                $.getScript('https://assets.pinterest.com/js/pinit_main.js', callback);
-            },
-         
-            // Get the Pinterest instance
-            get: function() {
-                 
-                var i;
-                 
-                for (i in window) {
-                    if (window.hasOwnProperty(i)) {
-                        if (i.indexOf('PIN_') === 0 && typeof window[i] === 'object' && window[i].f.render.buttonPin !== undefined) {
-                            return window[i];
-                        }
-                    }
-                }
-            },
-         
-            // Render Pinterest buttons
-            render: function(el) {
-                 
-                if (el.id.indexOf("PIN_") === 0) {
-                    return;
-                }
-                 
-                this.get().f.render.buttonPin(el);
-            }
-        }
-    }
-
     // STICKY ELEMENTS INIT
     var elements = document.querySelectorAll('.js-sticky');
     Stickyfill.add(elements);
@@ -230,8 +197,7 @@ $(document).ready(function(){
         initInview();
 
         // RE-RENDER PINTEREST BUTTONS
-        updatePins();
-
+        PinUtils.build();
 
     });
 
