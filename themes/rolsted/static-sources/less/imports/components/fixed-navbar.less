@@ -1,17 +1,55 @@
 .c-fixed-navbar {
-    &:extend(.x-transition);
+    &:extend(.x-transition-ease-in-out);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    padding: 0.5rem 2.5rem;
+    
     background-color: white;
     z-index: 999;
     &:extend(.x-box-shadow-soft);
 
     .cta-is-hidden & {
         .translateY(-100%);
-        opacity: 0;
+        .box-shadow(none);
+    }
+
+    @media @screen-md {
+        padding: 0 2.5rem;
+    }
+
+}
+
+.c-fixed-navbar__inner {
+    &:extend(.x-flex, .x-flex-center);
+}
+
+.c-fixed-navbar__item {
+    &:extend(.x-haptic-default all, .x-transition, .x-flex, .x-flex-center);
+    font-size: 0.8em;
+    color: @color-gray-dark;
+    font-weight: @font-weight-body-bold;
+    padding: 1.2em 0;
+    
+    &:not(:last-child) {
+        margin-right: 2em;
+    }
+
+    .c-icon {
+        margin-right: 0.75em;
+    }
+
+}
+
+.c-fixed-navbar__button {
+    margin-left: auto;
+
+    @media @screen-sm {
+        .c-icon {
+            top: -0.1em;
+            width: 20px;
+            height: 20px;
+        }
     }
 
 }

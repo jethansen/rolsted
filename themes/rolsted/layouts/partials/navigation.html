@@ -4,8 +4,7 @@
         {{ range .Site.Menus.main }}
             <li class="c-header__nav-item {{ if in $url .URL }} is-active{{end}} js-nav-item">
                 <a href="{{.URL}}">
-                    {{ .Pre }}
-                    <span>{{ .Name }}</span>
+                    {{ .Name }}
                 </a>
             </li>
         {{end}}

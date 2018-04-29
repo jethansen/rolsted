@@ -51,3 +51,15 @@ other = "More illustrations"
 
 [illustration-default-description]
 other = "Handmade, minimal illustration by Rolsted, created directly from pen to paper with precision, imagination and patience."
+
+[pinterest-base]
+other = "Save"
+
+[pinterest-desktop]
+other = "on Pinterest"
+
+[facebook-base]
+other = "Share"
+
+[facebook-desktop]
+other = "on Facebook"

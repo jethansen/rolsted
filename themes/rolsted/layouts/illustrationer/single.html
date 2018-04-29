@@ -4,7 +4,28 @@
 {{ $byline := i18n "by-rolsted" }}
 
 <div class="c-fixed-navbar">
-    Del på: <a href=""></a>
+
+        <div class="c-fixed-navbar__inner wrap">
+            <a href="https://www.pinterest.com/pin/create/button/" target="_blank" data-pin-do="buttonBookmark" data-pin-custom=true class="c-fixed-navbar__item">
+                <i class="c-icon c-icon--xs c-icon--dark">
+                    {{ partial "svg/pinterest" }}
+                </i>
+                <span>{{ i18n "pinterest-base" }}<span class="h-hide-up-to-md"> {{ i18n "pinterest-desktop" }}</span></span>
+            </a>
+            <a href="" class="c-fixed-navbar__item js-share-facebook">
+                <i class="c-icon c-icon--xs c-icon--dark">
+                    {{ partial "svg/facebook" }}
+                </i>
+                <span>{{ i18n "facebook-base" }}<span class="h-hide-up-to-md"> {{ i18n "facebook-desktop" }}</span></span>
+            </a>
+            <a href="" class="c-fixed-navbar__item c-fixed-navbar__button">
+                <i class="c-icon c-icon--xs c-icon--dark">
+                    {{ partial "svg/cart" }}
+                </i>
+                <span>{{ i18n "order" }}</span>
+            </a>
+        </div>
+
 </div>
 
 <div class="container-fluid wrap">
@@ -29,7 +50,7 @@
     </div>
 </div>
 
-<div class="container-fluid wrap--wider">
+<div class="container-fluid wrap--wide">
     <div class="row">
         <div class="col-xs-12 l-margin-bottom-md">
             <div class="c-illustration c-illustration--single {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">

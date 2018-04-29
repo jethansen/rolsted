@@ -1,6 +1,9 @@
 // Document ready
 $(document).ready(function(){
 
+    // Enable transitions
+    $("body").removeClass("preload");
+
     //  ----------------------------------------------------------------------
     //  =Disable Hover on Scroll
     //  http://www.thecssninja.com/javascript/pointer-events-60fps
@@ -105,6 +108,10 @@ $(document).ready(function(){
     // On link clicked
     Barba.Dispatcher.on('linkClicked', function() {
         scrollToTop = true;
+
+            // Remove CTA nvbar
+            $('html').addClass('cta-is-hidden');
+
     });
 
 
@@ -149,7 +156,6 @@ $(document).ready(function(){
         var active_new_index = active_new.index();
 
         // Change theme
-        
 
         if (active_new.length !== 0) {
 
@@ -323,9 +329,20 @@ $(document).ready(function(){
                 if (type === 'header') {
                     
                     if (entry.intersectionRatio > 0) {
-                        $(document).addClass('cta-is-hidden');
+                        $('html').addClass('cta-is-hidden');
                     } else {
-                        $(document).removeClass('cta-is-hidden');
+                        $('html').removeClass('cta-is-hidden');
+                    }
+                    
+                }
+
+                // Carousel element
+                if (type === 'carousel') {
+                    
+                    if (entry.intersectionRatio > 0) {
+                        carouselPaused = false;
+                    } else {
+                        carouselPaused = true;
                     }
                     
                 }
@@ -459,5 +476,23 @@ $(document).ready(function(){
     };
 
     initFilter();
+
+    // CAROUSEL
+    function initCarousel() {
+
+        carouselPaused = false;
+       
+        setInterval(function(){
+            
+            if (carouselPaused !== true) {
+                var q = function(sel) { return document.querySelector(sel); }   
+                q(".js-carousel").appendChild(q(".js-carousel img:first-child"));
+            };
+
+        }, 3000)
+
+    }
+
+    initCarousel();
 
 });

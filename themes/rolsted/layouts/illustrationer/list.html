@@ -1,46 +1,25 @@
 {{ partial "header" . }}
 
-{{ $byline := i18n "by-rolsted" }}
-{{ $title := .Params.rel_illustration }}
-
-{{ if $title }}
-
-    <!-- Loop through pages to find relative page -->
-    {{ range .Site.Pages }}
-        {{ if eq .Title $title }}
-            {{ $.Scratch.Add "illustration_permalink" .Permalink }}
-        {{ end }}
-    {{ end }}
-
-{{ end }}
-
 <section>
-        <div class="row reverse-md row--nogutter-xs c-hero-layout-1 c-inview js-inview" data-inviewtype="default" data-inviewonce=true>
+        <div class="row row--nogutter-xs c-hero-layout-1 c-inview js-inview" data-inviewtype="default" data-inviewonce=true>
+            <div class="col-xs-12 col-lg-6 c-hero-layout-1__content">
+                <div class="container-fluid c-hero-layout-1__top l-align-center-xs l-align-left-lg c-inview__el c-inview__el--slide-right" >
+                    {{.Content}}
+                    <a href="#illustrations" class="c-hero-layout-1__mouse no-barba js-scroll-to-anchor l-margin-top-sm h-hide-up-to-lg"></a>
+                </div>
+            </div>
             <div class="col-xs-12 col-lg-6">
-                <div class="c-hero-layout-1__image">
-                    {{ with .Resources.GetMatch "**.jpg" }}
-                        
-                        {{ $image_size_1 := .Resize "800x" }}
-                        {{ $image_size_2 := .Resize "1350x" }}
-                        {{ $image_size_3 := .Resize "1600x" }}
-                        {{ $image_size_4 := .Resize "2700x" }}
+                <div class="c-hero-layout-1__image c-hero-layout-1__carousel js-carousel js-inview" data-inviewtype="carousel">
+                    {{ with .Resources.ByType "image" }}
 
-                        {{ if $title }}
-                            {{ $permalink := $.Scratch.Get "illustration_permalink" }}
-                            <a href="{{ $permalink }}">
-                                <img
-                                src="{{ $image_size_1.RelPermalink }}"
-                                sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
-                                (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
-                                100vw"
-                                srcset="{{ $image_size_1.RelPermalink }} {{ $image_size_1.Width }}w, 
-                                {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
-                                {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
-                                {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                                alt="{{ $title }}" title="{{ $title }}" />
-                            </a>
-                        {{ else }}
-                            <img
+                        {{ range . }}
+
+                            {{ $image_size_1 := .Resize "800x" }}
+                            {{ $image_size_2 := .Resize "1350x" }}
+                            {{ $image_size_3 := .Resize "1600x" }}
+                            {{ $image_size_4 := .Resize "2700x" }}
+
+                            <img 
                             src="{{ $image_size_1.RelPermalink }}"
                             sizes="(min-width: {{ $image_size_1.Width }}px) {{ $image_size_2.Width }}px,
                             (min-width: {{ $image_size_1.Width }}px) {{ $image_size_1.Width }}px,
@@ -49,16 +28,11 @@
                             {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                             {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                             {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                            alt="{{ $title }}" title="{{ $title }}" />
+                            alt="{{ .Title }}" />
+
                         {{ end }}
 
                     {{ end }}
-                </div>
-            </div>
-            <div class="col-xs-12 col-lg-6 c-hero-layout-1__content">
-                <div class="container-fluid c-hero-layout-1__top l-align-center-xs l-align-left-lg c-inview__el c-inview__el--slide-right" >
-                    {{.Content}}
-                    <a href="#illustrations" class="c-hero-layout-1__mouse no-barba js-scroll-to-anchor l-margin-top-md h-hide-up-to-lg"></a>
                 </div>
             </div>
         </div>

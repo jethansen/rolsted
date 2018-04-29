@@ -51,3 +51,15 @@ other = "Flere illustrationer"
 
 [illustration-default-description]
 other = "Håndtegnet, minimalistisk illustration fra Rolsted, skabt direkte fra pen til papir med lineal, fantasi og tålmodighed."
+
+[pinterest-base]
+other = "Gem"
+
+[pinterest-desktop]
+other = "på Pinterest"
+
+[facebook-base]
+other = "Del"
+
+[facebook-desktop]
+other = "på Facebook"
