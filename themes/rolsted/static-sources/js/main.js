@@ -246,7 +246,7 @@ $(document).ready(function(){
              * this.oldContainer is the HTMLElement of the old Container
              */
         
-            return $('.js-overlay').fadeIn(200, function(){
+            return $('.js-overlay').fadeIn(300, function(){
 
                 // Remove CTA nvbar
                 $('html').addClass('cta-is-hidden');
@@ -572,3 +572,13 @@ $(document).ready(function(){
     initCarousel();
 
 });
+
+ffmpeg -i <input> -c:v libx264 -crf 23 -profile:v baseline -level 3.0 -pix_fmt yuv720p -an -movflags faststart output.mp4
+
+ffmpeg -i <input> -vcodec libx264 -f mp4 -vb 768k -preset slow -an -movflags faststart output.mp4
+
+ffmpeg -i inputvideo.ext -c:v libtheora -an -r:v 24 -b:v 1500k -an -movflags faststart output.ogv
+
+ffmpeg -i input.mov -vcodec libvpx -qmin 0 -qmax 30 -crf 10 -b:v 1M -an libvorbis -movflags faststart output.webm
+
+ffmpeg -i input.mov -vcodec libvpx -qmin 0 -qmax 50 -crf 10 -b:v 1M -movflags faststart output.webm
