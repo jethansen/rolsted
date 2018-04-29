@@ -40,7 +40,54 @@ $(document).ready(function(){
 
     });
 
+	// Hamburger click event
+	var $menu_is_visible = false;
+	
+	$(document).on('click', '.js-hamburger, .js-overlay', function(){	
+    	
+    	// Keep scroll
+    	fixedElement = 'js-header';
+    	
+        $('html').toggleClass('is-animating');
+        
+        setTimeout(function(){
+            $('html').removeClass('is-animating');
+        }, 500);
+    	
+    	if ($menu_is_visible == false) {
+        	
+            // Avoid content jump
+            var w = getScrollBarWidth();
+            $('body, .js-header').css('padding-right', w + 'px');
+        	
+        	// Disable scroll
+          	disableScroll();
+          	
+          	// Set state
+        	$menu_is_visible = true;
+        	
+    	} else {
+        	
+        	setTimeout(function(){
+            	
+            // Avoid content jump
+            $('body, .js-header').css('padding-right', '0px');
+            
+            // Enable scroll
+        	enableScroll();
+        	
+        	// Set state
+        	$menu_is_visible = false;
+            	
+        	}, 500);
+        	
+    	}
 
+    	$('html').toggleClass('nav-is-visible');
+
+	});
+
+    // Check marker position
     function checkMarker() {
         
         var nav = $('.js-nav');
@@ -572,13 +619,3 @@ $(document).ready(function(){
     initCarousel();
 
 });
-
-ffmpeg -i <input> -c:v libx264 -crf 23 -profile:v baseline -level 3.0 -pix_fmt yuv720p -an -movflags faststart output.mp4
-
-ffmpeg -i <input> -vcodec libx264 -f mp4 -vb 768k -preset slow -an -movflags faststart output.mp4
-
-ffmpeg -i inputvideo.ext -c:v libtheora -an -r:v 24 -b:v 1500k -an -movflags faststart output.ogv
-
-ffmpeg -i input.mov -vcodec libvpx -qmin 0 -qmax 30 -crf 10 -b:v 1M -an libvorbis -movflags faststart output.webm
-
-ffmpeg -i input.mov -vcodec libvpx -qmin 0 -qmax 50 -crf 10 -b:v 1M -movflags faststart output.webm

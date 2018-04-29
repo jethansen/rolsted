@@ -37,7 +37,7 @@ function whichTransitionEvent(){
       return transitions[t];
     }
   }
-}
+};
 
 var transitionEvent = whichTransitionEvent();
 
@@ -49,4 +49,41 @@ function viewport() {
         e = document.documentElement || document.body;
     }
     return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
-}
+};
+
+/* Functions for enabling and disabling scroll, that works on iOS - https://gist.githubusercontent.com/tonytangau/04cca5e1a51d1dc0b49513fcd646b394/raw/b482e10cd5dd4446f245344ac3692c976330236c/iosFixedElement.js */
+var fixedElement;
+
+var freeze = function (e) {
+    if (!document.getElementsByClassName(fixedElement)[0].contains(e.target)) {
+        e.preventDefault();
+    }
+};
+
+var disableScroll = function () {
+    document.body.style.overflow = "hidden"; // Or toggle using class: document.body.className += "overflow-hidden-class";
+
+    // Only accept touchmove from fixed-element
+    document.addEventListener('touchmove', freeze, false);
+    
+    // Prevent background scrolling
+    document.getElementsByClassName(fixedElement)[0].addEventListener("touchmove", function (e) {
+        var top = this.scrollTop,
+            totalScroll = this.scrollHeight,
+            currentScroll = top + this.offsetHeight;
+
+        if (top === 0 && currentScroll === totalScroll) {
+            e.preventDefault();
+        } else if (top === 0) {
+            this.scrollTop = 1;
+        } else if (currentScroll === totalScroll) {
+            this.scrollTop = top - 1;
+        }
+    });
+    
+};
+
+var enableScroll = function () {
+    document.removeEventListener("touchmove", freeze);
+    document.body.style.overflow = "";
+};
