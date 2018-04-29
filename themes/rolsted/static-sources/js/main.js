@@ -197,7 +197,9 @@ $(document).ready(function(){
         initInview();
 
         // RE-RENDER PINTEREST BUTTONS
-        PinUtils.build();
+        setTimeout(function(){
+            PinUtils.build();
+        }, 50);
 
     });
 
