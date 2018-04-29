@@ -196,6 +196,9 @@ $(document).ready(function(){
         // INIT INVIEW
         initInview();
 
+        // RE-RENDER PINTEREST BUTTONS
+        window.parsePins();
+
 
     });
 
