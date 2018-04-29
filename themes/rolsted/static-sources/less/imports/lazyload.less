@@ -1,19 +1,16 @@
-.lazyload,
-.lazyloading {
-
-    &,
-    + .t-caption {
-        &:extend(.x-transition-slow);
-        opacity: 0;
-    }
-
+.lazyload {
+    opacity: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
-.lazyloaded {
-    
-    &,
-    + .t-caption {
-        
-        opacity: 1;
+
+.lazyloading {
+    opacity: 1;
+    background: @color-gray-background url(/_assets/images/loader.gif) no-repeat center center;
+
+    .c-illustration & {
+        background: white url(/_assets/images/loader.gif) no-repeat center center;
+
     }
 
 }

@@ -231,7 +231,7 @@ $(document).ready(function(){
              * this.oldContainer is the HTMLElement of the old Container
              */
         
-            return $('.js-overlay').fadeIn(150).promise();
+            return $('.js-overlay').fadeIn(200).promise();
 
         },
     
@@ -254,7 +254,7 @@ $(document).ready(function(){
             // Hide the old container from the DOM
             $(this.oldContainer).hide();
 
-            $('.js-overlay').fadeOut(700, function(){
+            $('.js-overlay').fadeOut(500, function(){
                 
             });
 
@@ -494,11 +494,5 @@ $(document).ready(function(){
     }
 
     initCarousel();
-
-    // LAZYLOAD
-
-    document.addEventListener('lazyloaded', function(e){
-        $(e.target).closest('.js-inview').removeClass('is-loading');
-    });
 
 });
