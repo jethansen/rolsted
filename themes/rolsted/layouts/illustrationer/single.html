@@ -106,7 +106,7 @@
                         {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                         {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                         {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                        class="c-image lazyload" alt="{{ $title }}" />
+                        class="c-image lazyload" alt="{{ $title }}" width="{{ $image_size_1.Width }}" height="{{ $image_size_1.Height }}" />
 
                         <div class="t-caption">
 
@@ -147,7 +147,7 @@
                         {{ $image_size_2.RelPermalink }} {{ $image_size_2.Width }}w, 
                         {{ $image_size_3.RelPermalink }} {{ $image_size_3.Width }}w, 
                         {{ $image_size_4.RelPermalink }} {{ $image_size_4.Width }}w" 
-                        class="c-image lazyload" alt="{{ $title }}" />
+                        class="c-image lazyload" alt="{{ $title }}" width="{{ $image_size_1.Width }}" height="{{ $image_size_1.Height }}" />
                         <div class="t-caption">{{ $pageTitle }} {{ $byline }}</div>
                         
                     {{ end }}
