@@ -116,7 +116,15 @@ $(document).ready(function(){
 
 
     Barba.Dispatcher.on('initStateChange', function() {
+        
+        // This sets transition
         popping = false;
+
+        // Trigger Google Analytics pageview
+        if (typeof ga === 'function') {
+            ga('send', 'pageview', location.pathname);
+        }
+
     });
     
 
@@ -195,6 +203,9 @@ $(document).ready(function(){
 
         // INIT INVIEW
         initInview();
+
+        // INIT CAROUSEL
+        initCarousel();
 
         // RE-RENDER PINTEREST BUTTONS
         setTimeout(function(){
@@ -335,10 +346,16 @@ $(document).ready(function(){
                 /* Video */
                 if (type === 'video') {
                     
-                    if (entry.intersectionRatio > 0) {
-                        elem[0].play();
-                    } else {
-                        elem[0].pause();
+                    if (elem.hasClass('is-loaded')) {
+
+                        if (entry.intersectionRatio > 0) {
+                            elem[0].play();
+                            console.log('play');
+                        } else {
+                            elem[0].pause();
+                            console.log('pause');
+                        }
+
                     }
                     
                 }
@@ -390,24 +407,26 @@ $(document).ready(function(){
         var lazyVideos = [].slice.call(document.querySelectorAll("video.lazyvideo"));
 
         var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(function(video) {
-            if (video.isIntersecting) {
-            for (var source in video.target.children) {
-                var videoSource = video.target.children[source];
-                if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-                videoSource.src = videoSource.dataset.src;
-                }
-            }
+        
+            entries.forEach(function(video) {
+                if (video.isIntersecting) {
+                    for (var source in video.target.children) {
+                        var videoSource = video.target.children[source];
+                        if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                            videoSource.src = videoSource.dataset.src;
+                        }
+                    }
     
-            video.target.load();
-            video.target.classList.add("is-loaded");
-            lazyVideoObserver.unobserve(video.target);
-            }
-        });
+                    video.target.load();
+                    video.target.classList.add('is-loaded');
+                    lazyVideoObserver.unobserve(video.target);
+
+                }
+            });
         });
     
         lazyVideos.forEach(function(lazyVideo) {
-        lazyVideoObserver.observe(lazyVideo);
+            lazyVideoObserver.observe(lazyVideo);
         });
 
     };
@@ -453,10 +472,6 @@ $(document).ready(function(){
             var tag = thisItem.attr('data-target');
             var targetItems = illustrationItems.filter('[data-tags*=' + tag + ']');
 
-            // Go to top
-            $('html, body').animate({
-                scrollTop: $('#illustrations').offset().top
-            }, 500, "easeOutQuint");
 
             // If All
             if (tag === 'All') {
@@ -472,6 +487,9 @@ $(document).ready(function(){
 
             // Animate illustrations out
             illustrationContainer.addClass('hide-illustrations').one(transitionEvent, function(){
+
+            // Go to top
+            window.scrollTo(0, $('#illustrations').offset().top);
 
                 // Remove second and third class
                 illustrationItems.removeClass('is-third is-second').addClass('is-hidden');
@@ -525,18 +543,29 @@ $(document).ready(function(){
     initFilter();
 
     // CAROUSEL
+    var interval;
+
     function initCarousel() {
 
+        // Unpause carousel
         carouselPaused = false;
-       
-        setInterval(function(){
-            
-            if (carouselPaused !== true && $('.js-carousel').length !== 0) {
-                var q = function(sel) { return document.querySelector(sel); }   
-                q(".js-carousel").appendChild(q(".js-carousel img:first-child"));
-            };
 
-        }, 3000)
+        clearInterval(interval);
+
+        // Check if carousel exist in DOM
+        if ($('.js-carousel').length !== 0) {
+
+            // Set interval if i
+            interval = setInterval(function(){
+            
+                if (carouselPaused !== true) {
+                    var q = function(sel) { return document.querySelector(sel); }   
+                    q(".js-carousel").appendChild(q(".js-carousel img:first-child"));
+                };
+    
+            }, 4000);
+
+        }
 
     }
 
