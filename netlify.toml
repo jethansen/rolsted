@@ -37,7 +37,7 @@ HUGO_ENABLEGITINFO = "true"
   conditions = {Language = ["da"]}
 
 [[redirects]]
-  from = "/en/"
+  from = "/en"
   to = "/en/illustrations"
   status = 301
   force = true
