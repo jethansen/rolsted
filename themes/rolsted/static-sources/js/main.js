@@ -246,7 +246,7 @@ $(document).ready(function(){
              * this.oldContainer is the HTMLElement of the old Container
              */
         
-            return $('.js-overlay').fadeIn(150, function(){
+            return $('.js-overlay').fadeIn(200, function(){
 
                 // Remove CTA nvbar
                 $('html').addClass('cta-is-hidden');
@@ -283,7 +283,7 @@ $(document).ready(function(){
             // Remove loading class from HTML (used for disabling transitions on some elements)
             $('html').removeClass('page-is-loading');
 
-            $('.js-overlay').fadeOut(500, function(){
+            $('.js-overlay').fadeOut(1000, function(){
                 $(this).removeClass('show-loader');
             });
 
