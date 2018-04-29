@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     right: 0;
-    
+    padding: 0 2.5rem;    
     background-color: white;
     z-index: 999;
     &:extend(.x-box-shadow-soft);
@@ -12,10 +12,6 @@
     .cta-is-hidden & {
         .translateY(-100%);
         .box-shadow(none);
-    }
-
-    @media @screen-md {
-        padding: 0 2.5rem;
     }
 
 }
