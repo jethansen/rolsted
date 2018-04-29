@@ -91,7 +91,7 @@
 .c-illustration__image-inner {
     position: relative;
     width: 100%;
-    background-color: white;
+    background: white; 
 
     &:after {
         content: '';
@@ -102,7 +102,7 @@
     }
 
     img {
-        .transition-transform(0.5s ease, opacity 0.3s ease);
+        &:extend(.x-transition-slow);
         position: absolute;
         top: 0;
         left: 0;
@@ -111,11 +111,11 @@
         filter: blur(0); // Fix webkit antialising issues on hover
     }
 
-
-
 }
 
-
+.c-inview.is-loading.is-loading .c-illustration__image-inner {
+    background: white url(/_assets/images/loader.gif) no-repeat center center;
+}
 
 .c-illustration__title {
     position: absolute;

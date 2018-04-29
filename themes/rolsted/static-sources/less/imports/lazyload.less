@@ -1,9 +1,19 @@
-.lazyload {
-    opacity: 0;
-    min-height: 200px;
-}
-
+.lazyload,
 .lazyloading {
-    opacity: 1;
-    background: url(/_assets/images/loader.gif) no-repeat center center;
+
+    &,
+    + .t-caption {
+        &:extend(.x-transition-slow);
+        opacity: 0;
+    }
+
+}
+.lazyloaded {
+    
+    &,
+    + .t-caption {
+        
+        opacity: 1;
+    }
+
 }

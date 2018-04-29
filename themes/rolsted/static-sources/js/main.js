@@ -495,4 +495,10 @@ $(document).ready(function(){
 
     initCarousel();
 
+    // LAZYLOAD
+
+    document.addEventListener('lazyloaded', function(e){
+        $(e.target).closest('.js-inview').removeClass('is-loading');
+    });
+
 });
