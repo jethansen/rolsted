@@ -7,9 +7,9 @@
             <h1 class="c-hero-layout-3__title">{{ partial "headline" . }}</h1>
 
             <div class="c-hero-layout-3__background">
-                <video autoplay muted loop preload="none" playsinline poster="{{ "_assets/video/rolsted.jpg" | relURL}}">
-                    <source src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
-                    <source src="{{ "_assets/video/rolsted.webm" | relURL}}" type="video/webm" />
+                <video autoplay muted loop playsinline class="lazyvideo js-inview" data-inviewtype="video">
+                    <source data-src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
+                    <source data-src="{{ "_assets/video/rolsted.webm" | relURL}}" type="video/webm" />
                 </video>
             </div>
 

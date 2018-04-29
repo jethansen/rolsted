@@ -8,3 +8,11 @@
     opacity: 1;
     background: white url(/_assets/images/loader.gif) no-repeat center center;
 }
+
+.lazyvideo {
+    &:extend(.x-transition);
+
+    &:not(.is-loaded) {
+        opacity: 0;
+    }
+}
