@@ -127,6 +127,11 @@
 }
 
 .c-hero-layout-1__carousel {
+    &:extend(.x-transition-slow);
+
+    &:not(.is-loaded) {
+        opacity: 0;
+    }
 
     img {
         .transition(opacity 1s ease);

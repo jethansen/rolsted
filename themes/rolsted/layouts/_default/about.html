@@ -7,9 +7,9 @@
             <h1 class="c-hero-layout-3__title">{{ partial "headline" . }}</h1>
 
             <div class="c-hero-layout-3__background">
-                <video autoplay muted loop playsinline preload class="lazyvideo js-inview" data-inviewtype="video">
-                    <source data-src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
-                    <source data-src="{{ "_assets/video/rolsted.webm" | relURL}}" type="video/webm" />
+                <video autoplay muted loop playsinline class="lazyload" data-poster="{{ "_assets/video/rolsted.jpg" | relURL}}" preload="none">
+                    <source src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
+                    <source src="{{ "_assets/video/rolsted.webm" | relURL}}" type="video/webm" />
                 </video>
             </div>
 
@@ -23,8 +23,8 @@
     
     <div class="row around-xs">
         <div class="col-xs-11 col-sm-8 col-lg-7 col-xl-6">
-            <div class="c-avatar c-avatar--centered l-margin-bottom-md" style="background-image: url({{ "_assets/images/rolsted_profil.jpg" | relURL}});"></div>
-                {{ .Content }}
+            <div class="c-avatar c-avatar--centered l-margin-bottom-md lazyload" data-bg="{{ "_assets/images/rolsted_profil.jpg" | relURL}}"></div>
+            {{ .Content }}
         </div>
     </div>
 

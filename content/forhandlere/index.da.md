@@ -17,7 +17,7 @@ weight = 3
 
 +++
 
-Jeg arbejder lige nu på at gøre mine illustrationer tilgængelige i en række online plakatshops, men indtil da kan du stadig bestille en håndtegnet udgave i A4 størrelse på kraftigt, struktureret papir. Prisen er 200 kr + forsendelse.  Jeg tager også gerne imod specielle ønsker til motiver.
+Mine illustrationer kan endnu ikke købes online men jeg arbejder hårdt på sagen. Indtil illustrationerne kan købes som plakater kan du stadig skrive til mig direkte og bestille en håndtegnet udgave af eb hvilken som helst illustration du ser her på siden. Jeg kan levere i A4 størrelse på kraftigt, struktureret papir. Prisen er 200 kr + forsendelse. Jeg tager også gerne imod specielle ønsker til motiver.
 
 #### Vil du holdes opdateret?
 Følg mig Facebook, Instagram eller Pinterest og få automatisk besked så snart llustrationerne kan købes som plakater online og når jeg udgiver nye.
