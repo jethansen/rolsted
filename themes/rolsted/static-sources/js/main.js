@@ -396,6 +396,7 @@ $(document).ready(function(){
                     if (!elem.hasClass('lazyload')) {
 
                         if (entry.intersectionRatio > 0) {
+                            elem.addClass('is-inview');
                             elem[0].play();
                         } else {
                             elem[0].pause();

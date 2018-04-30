@@ -1,26 +1,26 @@
 <div class="container-fluid wrap wrap--wide l-padding-md">
                                                 
-    <div class="row h-hide-lg around-xs">
-        <div class="col-xs-12 col-sm-10 col-md-8 c-about__title">
+    <div class="row h-hide-lg around-xs c-inview js-inview" data-inviewtype="default" data-inviewonce="true">
+        <div class="col-xs-12 col-sm-10 col-md-8 c-about__title c-inview__el c-inview__el--slide-right">
             <h2 class="t-h1">{{ i18n "about-me-headline" | safeHTML }}</h2>
         </div>
     </div>
     <div class="row reverse-md around-xs between-lg">
-        <div class="col-xs-12 col-md-10 col-lg-6 add-space-below-up-to-lg c-about__media">
-            <div class="c-about__media-item c-about__media-video">
+        <div class="col-xs-12 col-md-10 col-lg-6 add-space-below-up-to-lg c-about__media c-inview js-inview" data-inviewtype="default" data-inviewonce="true">
+            <div class="c-about__media-item c-about__media-video c-inview__el c-inview__el--slide-left">
                 <video autoplay muted loop playsinline class="lazyload js-inview" data-poster="{{ "_assets/video/rolsted.jpg" | relURL}}" preload="none" data-inviewtype="video">
                     <source src="{{ "_assets/video/rolsted.mp4" | relURL}}" type="video/mp4" />
                     <source src="{{ "_assets/video/rolsted.webm" | relURL}}" type="video/webm" />
                 </video>
             </div>
-            <div class="c-about__media-item c-about__media-image">
+            <div class="c-about__media-item c-about__media-image c-inview__el c-inview__el--slide-left c-inview__el--delay-1">
                 <img class="lazyload" data-src="{{ "_assets/images/rolsted_profil_2.jpg" | relURL}}" width="500" height="500" />
             </div>
         </div>
-        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-5">
-            <h2 class="t-h1 l-margin-bottom-md h-hide-up-to-lg">{{ i18n "about-me-headline" | safeHTML }}</h2>
-            <p>{{ i18n "about-me-text" | safeHTML }}</p>
-            <img class="c-signature l-margin-top-sm lazyload" data-src="{{ "_assets/images/signature.png" | relURL}}" width="116" height="52" />
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-5 c-inview js-inview" data-inviewtype="default" data-inviewonce="true">
+            <h2 class="t-h1 l-margin-bottom-md h-hide-up-to-lg c-inview__el c-inview__el--slide-right">{{ i18n "about-me-headline" | safeHTML }}</h2>
+            <p class="c-inview__el c-inview__el--fade-in">{{ i18n "about-me-text" | safeHTML }}</p>
+            <img class="c-signature l-margin-top-sm lazyload c-inview__el c-inview__el--fade-in" data-src="{{ "_assets/images/signature.png" | relURL}}" width="116" height="52" />
         </div>
     </div>
 
