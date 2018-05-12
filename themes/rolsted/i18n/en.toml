@@ -25,6 +25,9 @@ other = "Coorporation"
 [follow-me]
 other = "Follow me"
 
+[follow-me-on]
+other = "Follow me on"
+
 [footer-follow-me-text]
 other = "Follow Rolsted on social media. In that way, you can be sure never to miss out, once new illustrations get released."
 
@@ -63,3 +66,6 @@ other = "Share"
 
 [facebook-desktop]
 other = "on Facebook"
+
+[order-overlay-text]
+other = "Unfortunately, this illustration is not yet available for purchase outside of Denmark, but I'm working on making that happen. Until then, be sure to follow me on <a class='c-link' href='https://www.facebook.com/rolsteddesign/'>Facebook</a>, <a class='c-link' href='https://www.instagram.com/rolsteddesign/'>Instagram</a> or <a class='c-link' href='https://www.pinterest.com/rolsteddesign/'>Pinterest</a> - where I'll be posting new illustrations on a regular basis and also let you know when they're made available for purchase outside of Denmark."

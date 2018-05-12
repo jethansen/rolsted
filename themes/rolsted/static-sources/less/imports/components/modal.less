@@ -1,0 +1,60 @@
+.c-modal {
+    &:extend(.x-flex, .x-flex-center, .x-flex-around);
+    .transition(background-color 0.7s ease);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: fade(@color-gray-dark, 50%);
+    z-index: 999;
+    padding: 2rem;
+    
+    -webkit-overflow-scrolling: touch;
+    .backface-visibility(hidden);
+
+    &.is-hidden {
+        left: 100%;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        background-color: fade(@color-gray-dark, 0%); 
+    }
+
+}
+
+.c-modal__inner {
+    &:extend(.x-transition-slow);
+    position: relative;
+    background: white;
+    padding: 3rem 3.5rem;
+    max-width: 800px;
+
+    .is-hidden & {
+        .translateY(3em);
+        opacity: 0;
+    }
+
+}
+
+.c-modal__close {
+    &:extend(.x-extend-hit-area all, .x-transition-slow);
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    opacity: 0.5;
+
+    .no-touchevents &:hover,
+    &:active {
+        opacity: 1;
+    }
+
+    @media @screen-up-to-sm {
+        
+        .c-icon {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+}

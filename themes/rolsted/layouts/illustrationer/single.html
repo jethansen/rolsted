@@ -3,28 +3,28 @@
 {{ $pageTitle := .Title }}
 {{ $byline := i18n "by-rolsted" }}
 
-<div class="c-fixed-navbar">
+<div class="c-fixed-navbar c-fixed-navbar--cta">
 
-        <div class="c-fixed-navbar__inner wrap">
-            <a href="https://www.pinterest.com/pin/create/button/" target="_blank" data-pin-do="buttonBookmark" data-pin-custom=true class="c-fixed-navbar__item no-barba">
-                <i class="c-icon c-icon--xs c-icon--dark">
-                    {{ partial "svg/pinterest" }}
-                </i>
-                <span>{{ i18n "pinterest-base" }}<span class="h-hide-up-to-md"> {{ i18n "pinterest-desktop" }}</span></span>
-            </a>
-            <a href="" class="c-fixed-navbar__item js-share-facebook no-barba">
-                <i class="c-icon c-icon--xs c-icon--dark">
-                    {{ partial "svg/facebook" }}
-                </i>
-                <span>{{ i18n "facebook-base" }}<span class="h-hide-up-to-md"> {{ i18n "facebook-desktop" }}</span></span>
-            </a>
-            <a href="" class="c-fixed-navbar__item c-fixed-navbar__button">
-                <i class="c-icon c-icon--xs c-icon--dark">
-                    {{ partial "svg/cart" }}
-                </i>
-                <span>{{ i18n "order" }}</span>
-            </a>
-        </div>
+    <div class="c-fixed-navbar__inner wrap">
+        <a href="https://www.pinterest.com/pin/create/button/" target="_blank" data-pin-do="buttonBookmark" data-pin-custom=true class="c-fixed-navbar__item no-barba">
+            <i class="c-icon c-icon--xs">
+                {{ partial "svg/pinterest" }}
+            </i>
+            <span>{{ i18n "pinterest-base" }}<span class="h-hide-up-to-md"> {{ i18n "pinterest-desktop" }}</span></span>
+        </a>
+        <a href="" class="c-fixed-navbar__item js-share-facebook no-barba">
+            <i class="c-icon c-icon--xs">
+                {{ partial "svg/facebook" }}
+            </i>
+            <span>{{ i18n "facebook-base" }}<span class="h-hide-up-to-md"> {{ i18n "facebook-desktop" }}</span></span>
+        </a>
+        <a class="c-fixed-navbar__item c-fixed-navbar__button js-button-order" onclick="ga('send', 'event', 'Button', 'click', 'Order');" data-modal-target="order">
+            <i class="c-icon c-icon--xs c-icon--dark">
+                {{ partial "svg/cart" }}
+            </i>
+            <span>{{ i18n "order" }}</span>
+        </a>
+    </div>
 
 </div>
 
@@ -41,7 +41,7 @@
                         {{ replace $string_cleaned "</p>" "" | safeHTML }}
                     </div>
                 </div>
-                <a class="c-button c-button--add-to-cart">
+                <a class="c-button c-button--add-to-cart js-button-order" onclick="ga('send', 'event', 'Button', 'click', 'Order');" data-modal-target="order">
                     <i class="c-button__icon">{{ partial "svg/cart" }}</i>
                     {{ i18n "order" }}
                 </a>
@@ -50,7 +50,7 @@
     </div>
 </div>
 
-<div class="container-fluid wrap--wide">
+<div class="container-fluid wrap--wide js-fixed-offset">
     <div class="row">
         <div class="col-xs-12 l-margin-bottom-md">
             <div class="c-illustration c-illustration--single {{ if ( isset .Params "color" ) }}c-illustration--{{ .Params.color }}{{ end }}" href="{{ .Permalink }}">
@@ -211,4 +211,5 @@
 </div>
 
 {{ partial "about" . }}
+{{ partial "modal-order" . }}
 {{ partial "footer" . }}

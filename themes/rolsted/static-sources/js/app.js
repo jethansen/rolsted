@@ -4,6 +4,8 @@
 // @codekit-append  "scroll-restoration-polyfill.browser.js"
 // @codekit-append  "jquery.easing.1.3.js"
 // @codekit-append  "lazysizes.min.js"
+// @codekit-append  "headroom.min.js"
+// @codekit-append  "jQuery.headroom.js"
 // @codekit-append  "ls.unveilhooks.js"
 // @codekit-append  "pinit.js"
 // @codekit-prepend "intersection-observer.js"

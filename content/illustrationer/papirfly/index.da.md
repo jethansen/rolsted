@@ -7,14 +7,14 @@ draft = false
 color = "purple"
 
 ## Tags
-tags = ["Luft"]
+tags = ["Luft","Par"]
 
 ## Resources
 [[resources]]
   src = "*_multi.jpg"
   name = "multi"
  [resources.params]
-    images = ["Papirfly","Kolibri"]
+    images = ["Papirfly","Papirbåd"]
 
 +++
 

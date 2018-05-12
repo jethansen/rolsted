@@ -8,14 +8,14 @@ color = "purple"
 url = "/en/illustrations/paper-plane/"
 
 ## Tags
-tags = ["Air"]
+tags = ["Air","Couple"]
 
 ## Resources
 [[resources]]
   src = "*_multi.jpg"
   name = "multi"
  [resources.params]
-    images = ["Paper plane","Hummingbird"]
+    images = ["Paper plane","Paper boat"]
 
 +++
 

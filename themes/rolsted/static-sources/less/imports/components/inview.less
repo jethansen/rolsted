@@ -7,7 +7,7 @@
 /* Scale down (subtle) */
 .c-inview__el--scale-down {
     
-    .c-inview:not(.is-inview) & {
+    html:not(.disable-inview-transitions) .c-inview:not(.is-inview) & {
         .scale(1.2);
         opacity: 0; 
     }
@@ -17,7 +17,7 @@
 /* Fade in */
 .c-inview__el--fade-in {
     
-    .c-inview:not(.is-inview) & {
+    html:not(.disable-inview-transitions) .c-inview:not(.is-inview) & {
         opacity: 0;
     }
     
@@ -26,7 +26,7 @@
 /* Slide up */
 .c-inview__el--slide-up {
     
-    .c-inview:not(.is-inview) & {
+    html:not(.disable-inview-transitions) .c-inview:not(.is-inview) & {
         .translateY(15%);
         opacity: 0;
     }
@@ -36,7 +36,7 @@
 /* Slide down */
 .c-inview__el--slide-down {
     
-    .c-inview:not(.is-inview) & {
+    html:not(.disable-inview-transitions) .c-inview:not(.is-inview) & {
         .translateY(-15%);
         opacity: 0;
     }
@@ -46,7 +46,7 @@
 /* Slide right */
 .c-inview__el--slide-right {
     
-    .c-inview:not(.is-inview) & {
+    html:not(.disable-inview-transitions) .c-inview:not(.is-inview) & {
         .translateX(-1em);
         opacity: 0;
     }
@@ -56,7 +56,7 @@
 /* Slide left */
 .c-inview__el--slide-left {
     
-    .c-inview:not(.is-inview) & {
+    html:not(.disable-inview-transitions) .c-inview:not(.is-inview) & {
         .translateX(1em);
         opacity: 0;
     }

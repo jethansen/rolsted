@@ -8,7 +8,7 @@ url = "/en/dealers/"
 
 ## Custom params
 button_text = "Contact me"
-button_link = "mailto:%61%6E%65%74%74%65%40%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E"
+button_link = "mailto:%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E%40%67%6D%61%69%6C%2E%63%6F%6D"
 rel_illustration = "Butterfly"
 
 ## Add to main menu

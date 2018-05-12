@@ -58,7 +58,7 @@ $(document).ready(function(){
         	
             // Avoid content jump
             var w = getScrollBarWidth();
-            $('body, .js-header').css('padding-right', w + 'px');
+            $('body').css('padding-right', w + 'px');
         	
         	// Disable scroll
           	disableScroll();
@@ -71,7 +71,7 @@ $(document).ready(function(){
         	setTimeout(function(){
             	
             // Avoid content jump
-            $('body, .js-header').css('padding-right', '0px');
+            $('body').css('padding-right', '0px');
             
             // Enable scroll
         	enableScroll();
@@ -85,7 +85,54 @@ $(document).ready(function(){
 
     	$('html').toggleClass('nav-is-visible');
 
-	});
+    });
+    
+    // Init headroom
+
+    var isScrollingToTop = false;
+
+    function initHeadroom() {
+
+        // Is scrolling to top
+        isScrollingToTop = false;
+
+        // Get header height
+        var h = $(window).height() * 3;
+
+        if ($('.js-fixed-offset').length !== 0) {
+            h = $('.js-fixed-offset').offset().top;
+        }
+
+        console.log(h);
+
+        // grab an element
+        $(".js-fixed-header").headroom({
+            tolerance: {
+                up : 30,
+                down : 0
+            },
+            offset : h,
+            onPin : function() {
+                if (isScrollingToTop !== true) {
+                    $('html').removeClass('header-is-hidden');
+                } else {
+                    isScrollingToTop = false;
+                }
+            },
+            onUnpin : function() {
+                $('html').addClass('header-is-hidden');
+            },
+            onTop : function() {
+                $('html').addClass('header-is-hidden header-is-on-top');
+            },
+            onNotTop : function() {
+                $('html').removeClass('header-is-on-top');
+            }
+        });
+
+    }
+
+    initHeadroom();
 
     // Check marker position
     function checkMarker() {
@@ -158,6 +205,16 @@ $(document).ready(function(){
 
         // Add loading class from HTML (used for disabling transitions on some elements)
         $('html').addClass('page-is-loading');
+
+        $(".js-fixed-header").headroom('destroy');
+
+    });
+
+    // On transition end
+    Barba.Dispatcher.on('transitionCompleted', function() {
+        
+        // INIT HEADROOM
+        initHeadroom(); 
 
     });
 
@@ -263,11 +320,15 @@ $(document).ready(function(){
 
     var HideShowTransition = Barba.BaseTransition.extend({
         start: function() {
+            $('html').addClass('disable-inview-transitions');
           this.newContainerLoading.then(this.finish.bind(this));
         },
       
         finish: function() {
           document.body.scrollTop = 0;
+          setTimeout(function(){
+                $('html').removeClass('disable-inview-transitions');
+          }, 1000);
           this.done();
         }
       });
@@ -293,10 +354,10 @@ $(document).ready(function(){
              * this.oldContainer is the HTMLElement of the old Container
              */
         
-            return $('.js-overlay').fadeIn(300, function(){
+            return $('.js-overlay').fadeIn(200, function(){
 
                 // Remove CTA nvbar
-                $('html').addClass('cta-is-hidden');
+                $('html').addClass('header-is-hidden header-is-on-top');
 
                 var $t = $(this);
 
@@ -320,8 +381,16 @@ $(document).ready(function(){
             var $el = $(this.newContainer);
 
             if (scrollToTop === true) {
+
+                // Make sure header doesn't get unpinned
+                isScrollingToTop = true;
+
+                // Scroll window to top
                 window.scrollTo(0,0);
+
+                // Reset scroll to top variable
                 scrollToTop = false;
+
             }
             
             // Hide the old container from the DOM
@@ -330,8 +399,10 @@ $(document).ready(function(){
             // Remove loading class from HTML (used for disabling transitions on some elements)
             $('html').removeClass('page-is-loading');
 
-            $('.js-overlay').fadeOut(1000, function(){
+            $('.js-overlay').fadeOut(700, function(){
+                
                 $(this).removeClass('show-loader');
+
             });
 
             _this.done();
@@ -417,6 +488,17 @@ $(document).ready(function(){
                     
                 }
 
+                // Top element
+                if (type === 'top') {
+                    
+                    if (entry.intersectionRatio > 0) {
+                        $('html').addClass('top-is-visible');
+                    } else {
+                        $('html').removeClass('top-is-visible');
+                    }
+                    
+                }
+
                 // Carousel element
                 if (type === 'carousel') {
                     
@@ -483,6 +565,7 @@ $(document).ready(function(){
         var navItems = nav.find('.js-filter-nav-item');
         var illustrationContainer = $('.js-filter-illustrations');
         var illustrationItems = $('.js-filter-illustration-item');
+        var scrollIllustrations = true;
         
         // Bind click
         navItems.on('click', function(){
@@ -508,8 +591,21 @@ $(document).ready(function(){
             // Animate illustrations out
             illustrationContainer.addClass('hide-illustrations').one(transitionEvent, function(){
 
-            // Go to top
-            window.scrollTo(0, $('#illustrations').offset().top);
+                // Go to top
+                if (scrollIllustrations) {
+
+                    // Make sure header doesn't get unpinned
+                    isScrollingToTop = true;
+
+                    $('.html').addClass('.header-is-hidden');
+
+                    // Scroll window to illustrations top
+                    window.scrollTo(0, $('#illustrations').offset().top);
+                    
+
+                } else {
+                    scrollIllustrations = true;
+                }
 
                 // Remove second and third class
                 illustrationItems.removeClass('is-third is-second').addClass('is-hidden');
@@ -547,6 +643,9 @@ $(document).ready(function(){
             // Disable transitions
             illustrationItems.addClass('disable-transitions');
 
+            // Make sure that container doesn't scroll to top
+            scrollIllustrations = false;
+
             // Activate filter
             navItems.filter('[data-target="' + activeFilter + '"]').trigger('click');
 
@@ -561,6 +660,55 @@ $(document).ready(function(){
     };
 
     initFilter();
+
+    // MODALS
+    $(document).on('click', '[data-modal-target]', function(e){
+
+        // Vars
+        var modal = $(this).attr('data-modal-target');
+
+        // Keep scroll
+        fixedElement = 'js-modal';
+
+        // Avoid content jump
+        var w = getScrollBarWidth();
+        $('body').css('padding-right', w + 'px');
+
+
+        // Disable scroll
+        disableScroll();
+
+        // Show modal
+        $('[data-modal-id="' + modal + '"]').removeClass('is-hidden');
+
+        e.stopPropagation();
+
+    });
+
+    $(document).on('click', '.js-modal-inner', function(e){
+
+        e.stopPropagation();
+
+    });
+
+    $(document).on('click', '.js-modal-close, .js-modal', function(e){
+
+        var modal = $(this).closest('.js-modal');
+
+        if (!modal) {
+            modal = $(this);
+        }
+
+        // Hide modal
+        modal.addClass('is-hidden');
+
+        // Avoid content jump
+        $('body').css('padding-right', '0px');
+        
+        // Enable scroll
+        enableScroll();
+
+    });
 
     // CAROUSEL
     var interval;
