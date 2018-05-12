@@ -1,18 +1,25 @@
-.lazyload {
+img.lazyload {
     opacity: 0;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-.lazyloading {
+img.lazyloading {
     opacity: 1;
     background: white url(/_assets/images/loader.gif) no-repeat center center;
 }
 
-.lazyvideo {
-    &:extend(.x-transition);
+video.lazyload,
+video.lazyloading,
+video.lazyloaded {
+    &:extend(.x-transition-slow);
+}
 
-    &:not(.is-loaded) {
-        opacity: 0;
-    }
+video.lazyload,
+video.lazyloading {
+    opacity: 0;
+}
+
+video.lazyloaded {
+    opacity: 1; 
 }

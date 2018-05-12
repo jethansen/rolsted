@@ -103,8 +103,6 @@ $(document).ready(function(){
             h = $('.js-fixed-offset').offset().top;
         }
 
-        console.log(h);
-
         // grab an element
         $(".js-fixed-header").headroom({
             tolerance: {
