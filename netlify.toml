@@ -31,12 +31,10 @@ HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
   from = "/"
-  to = "/illustrationer"
+  to = "/illustrationer/"
   status = 301
-  force = true
 
 [[redirects]]
   from = "/en"
-  to = "/en/illustrations"
+  to = "/en/illustrations/"
   status = 301
-  force = true
