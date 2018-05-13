@@ -67,5 +67,29 @@ other = "Del"
 [facebook-desktop]
 other = "på Facebook"
 
+[not-yet-available]
+other = "Endnu ikke tilgængelig"
+
 [order-overlay-text]
 other = "Denne illustration kan desværre endnu ikke købes via en online shop. Men indtil da kan du stadig bestille en håndtegnet udgave i A4 størrelse til en pris på 200 kr. + forsendelse. Kontakt mig <a class='c-link' href='mailto:%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E%40%67%6D%61%69%6C%2E%63%6F%6D'>her</a> og lad os aftale nærmere.</br></br></br><h3>Følg Rolsted</h3>Følg Rolsted på <a class='c-link' href='https://www.facebook.com/rolsteddesign/'>Facebook</a>, <a class='c-link' href='https://www.instagram.com/rolsteddesign/'>Instagram</a> eller <a class='c-link' href='https://www.pinterest.com/rolsteddesign/'>Pinterest</a> og få automatisk besked så snart denne illustration kan købes som plakat online  - eller hvis jeg udgiver nye motiver."
+
+[modal-order-poster-headline]
+other = "Plakat"
+
+[modal-order-poster-text]
+other = "Desværre. Denne illustration kan endnu ikke købes som plakat. Følg mig på <a class='c-link' href='https://www.facebook.com/rolsteddesign/'>Facebook</a>, <a class='c-link' href='https://www.instagram.com/rolsteddesign/'>Instagram</a> eller <a class='c-link' href='https://www.pinterest.com/rolsteddesign/'>Pinterest</a> - så giver jeg besked så snart det sker."
+
+[modal-order-handdrawn-headline]
+other = "Håndtegnet"
+
+[modal-order-handdrawn-text]
+other = "Få din helt egen, unikke udgave af Isbjerg by Rolsted, personligt håndtegnet af mig på kraftigt A4 papir (21 x 29 cm). Kontakt mig herunder og lad os aftale nærmere."
+
+[modal-order-handdrawn-price]
+other = "250 kr. + forsendelse"
+
+[or]
+other = "eller"
+
+[order-subject]
+other = "Bestilling af"
