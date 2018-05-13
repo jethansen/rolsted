@@ -18,7 +18,7 @@ weight = 3
 
 +++
 
-My illustrations are not yet available for purchase outside of Denmark, but I'm working hard on changing that. Until then, give me a follow on Instagram, Facebook or Pinterest and I'll make sure to let you know once it happens (or new illustrations are released).
+My illustrations are not yet available for purchase outside of Denmark, but I'm working hard on changing that. Until then, give me a follow on {{% class "c-link" %}}[Facebook](http://www.facebook.com/rolsteddesign){{% /class %}}, {{% class "c-link" %}}[Instagram](ttp://www.instagram.com/rolsteddesign){{% /class %}} or {{% class "c-link" %}}[Pinterest](http://www.pinterest.com/rolsteddesign){{% /class %}} and I'll make sure to let you know once it happens (or new illustrations are released).
 
 #### Become a Rolsted dealer
 If you own an online poster store and would like to sell my illustrations, I would very much like to hear from you. Send me an email below and I'll get back to you as soon as possible.

@@ -56,7 +56,7 @@
 
 .c-modal__col {
     &:extend(.x-transition-slow);
-    padding: 2rem;
+    padding: 2.25rem 2rem;
     position: relative;
 
     p {
@@ -127,8 +127,8 @@
 
 .c-modal__col-or {
     position: absolute;
-    top: 100%;
-    left: 50%;
+    top: 25%;
+    left: 100%;
     .translate(-50%, -50%);
     text-transform: uppercase;
     letter-spacing: @letter-spacing-lg;
@@ -139,10 +139,12 @@
     background-color: white;
     margin-top: 0.2em;
 
-    @media @screen-md { 
-        top: 25%;
-        left: 100%;
+    @media @screen-up-to-md { 
+        top: 100%;
+        left: 50%;
     }
+
+    
 }
 
 .c-modal__header {
@@ -151,22 +153,38 @@
     text-align: center;
     padding: 1rem 3.5rem; 
     font-size: 0.9em; 
+
+    @media @screen-up-to-md {
+        display: none;
+    }
 }
 
 .c-modal__close {
-    &:extend(.x-extend-hit-area all, .x-transition-slow);
+    &:extend(.x-extend-hit-area all, .x-transition-slow, .x-reset-appearance);
     position: absolute;
-    top: 50%;
+    top: 1.5em;
     right: 1.5rem;
     opacity: 0.3;
-    .translateY(-45%);
+    z-index: 999;
 
     .no-touchevents &:hover,
     &:active {
         opacity: 1;
     }
 
-    @media @screen-up-to-sm {
+    &:active {
+        &:extend(.x-transition-none);
+    }
+
+    @media @screen-up-to-md {
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 60px;
+
+        &:after {
+            display: none;
+        }
         
         .c-icon {
             width: 16px;
@@ -192,8 +210,9 @@
 .c-modal__col-icon {
 
     @media @screen-up-to-md {
+        top: -0.2em;
         float: left;
-        margin: -0.1em 0.7em 0 0;
+        margin: 0 0.7em 0 0;
         .scale(0.85);
     }
 
@@ -243,6 +262,10 @@
 .c-modal__col-headline {
     &:extend(.x-transition-slow);
     margin: 0.2em 0 -0.2em 0;
+
+    @media @screen-up-to-md {
+        font-size: 1.7em;
+    }
 
     /* Disabled column */
     .c-modal__col--disabled & {
