@@ -11,3 +11,5 @@ url = "/en/illustrations/leaves/"
 tags = ["Nature"]
 
 +++
+
+Gone with the wind.

@@ -18,3 +18,4 @@ tags = ["Arktis","Dyr"]
 
 +++
 
+Klar til den arktiske kulde, bevæbnet med charme og bløde dun.

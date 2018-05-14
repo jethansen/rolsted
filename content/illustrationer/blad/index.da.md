@@ -18,4 +18,4 @@ tags = ["Abstrakt", "Natur"]
 
 +++
 
-
+Abstrakt blad bygget på geometriske former. 

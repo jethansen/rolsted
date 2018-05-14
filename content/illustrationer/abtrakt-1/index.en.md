@@ -11,3 +11,5 @@ url = "/en/illustrations/abstract-1/"
 tags = ["Abstract", "Couple"]
 
 +++
+
+Simple patterns and shapes.

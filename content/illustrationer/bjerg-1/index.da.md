@@ -18,4 +18,4 @@ tags = ["Abstrakt", "Natur", "Par"]
 
 +++
 
-
+Abstrakt bjerg med geometriske former.

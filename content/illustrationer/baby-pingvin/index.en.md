@@ -18,3 +18,5 @@ tags = ["Arctic","Animals"]
     images = ["Baby Penguin","Iceberg"]
 
 +++
+
+Ready for the artic cold, armed with charm and fluffyness.

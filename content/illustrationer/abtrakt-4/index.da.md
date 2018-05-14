@@ -18,3 +18,4 @@ tags = ["Abstrakt","Par"]
 
 +++
 
+Simple mønstre og former.

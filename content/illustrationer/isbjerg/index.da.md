@@ -18,4 +18,4 @@ tags = ["Arktis","Abstrakt"]
 
 +++
 
-Der gemmer sig altid noget under overfladen. 
+Måske der gemmer sig noget under overfladen.

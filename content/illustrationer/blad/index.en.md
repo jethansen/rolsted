@@ -19,3 +19,4 @@ tags = ["Abstract", "Nature"]
 
 +++
 
+Abstract leaf based on geometric shapes.
