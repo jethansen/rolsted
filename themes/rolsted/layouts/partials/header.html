@@ -6,7 +6,7 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <meta name="p:domain_verify" content="8b10e0e0ee0f41fbc6beadb8b7347f3f"/>
      <link rel="stylesheet" href="{{ "_assets/css/main.css" | relURL}}">
-     <title>{{ .Site.Title }} | {{ if .Params.meta_title }}{{ .Params.seo_title }}{{ else }}{{ .Title }}{{end}}</title>
+     <title>{{ .Site.Title }} | {{ if isset .Params "seo_title" }}{{ .Params.seo_title }}{{ else }}{{ .Title }}{{end}}</title>
      {{ partial "favicons" . }}
      {{ partial "seo/schema" . }}
      {{ partial "seo/open_graph" . }}
