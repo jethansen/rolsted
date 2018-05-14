@@ -70,7 +70,7 @@
                         {{ .Content }}
                         {{ if and (isset .Params "button_text") (isset .Params "button_link") }}
                         <div class="text--xs-center text--lg-left l-margin-top-md">
-                            <a href="{{ .Params.button_link }}" class="c-button">{{ .Params.button_text }}</a>
+                            <a href="{{ .Params.button_link }}" class="c-button" onclick="ga('send', 'event', 'Button', 'click', '{{ .Params.button_text }}');">{{ .Params.button_text }}</a>
                         </div>
                         {{ end }}
                     </div>

@@ -14,10 +14,10 @@
 
                         {{ range . }}
 
-                            {{ $image_size_1 := .Resize "800x" }}
-                            {{ $image_size_2 := .Resize "1350x" }}
-                            {{ $image_size_3 := .Resize "1600x" }}
-                            {{ $image_size_4 := .Resize "2700x" }}
+                            {{ $image_size_1 := .Resize "500x" }}
+                            {{ $image_size_2 := .Resize "1000x" }}
+                            {{ $image_size_3 := .Resize "1500x" }}
+                            {{ $image_size_4 := .Resize "2000x" }}
 
                             <img 
                             src="{{ $image_size_1.RelPermalink }}"
