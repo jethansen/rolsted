@@ -723,18 +723,25 @@ $(document).ready(function(){
         // Check if carousel exist in DOM
         if (carousel.length !== 0) {
 
-            // Show carousel
-            carousel.addClass('is-loaded');
+            // Check if images are loaded
+            carousel.imagesLoaded( function() {
 
-            // Set interval if i
-            interval = setInterval(function(){
-            
-                if (carouselPaused !== true) {
-                    var q = function(sel) { return document.querySelector(sel); }   
-                    q(".js-carousel").appendChild(q(".js-carousel img:first-child"));
-                };
-    
-            }, 3000);
+                console.log('all loaded');
+
+                // Indiciate that all images are loaded
+                carousel.addClass('is-loaded');
+
+                // Start carousel
+                interval = setInterval(function(){
+                
+                    if (carouselPaused !== true) {
+                        var q = function(sel) { return document.querySelector(sel); }   
+                        q(".js-carousel").appendChild(q(".js-carousel img:first-child"));
+                    };
+        
+                }, 3000);
+
+            });
 
         }
 

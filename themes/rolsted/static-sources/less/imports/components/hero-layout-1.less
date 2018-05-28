@@ -129,10 +129,6 @@
 .c-hero-layout-1__carousel {
     &:extend(.x-transition-slow);
 
-    &:not(.is-loaded) {
-        opacity: 0;
-    }
-
     img {
         .transition(opacity 1s ease);
         opacity: 0;
@@ -143,10 +139,11 @@
         opacity: 1;
     }
     
-    img:last-child {
+    &.is-loaded img:last-child {
         z-index: 1;
         opacity: 1;
     }
+
 }
 
 .c-hero-layout-1__mouse {
