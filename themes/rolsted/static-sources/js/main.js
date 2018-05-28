@@ -726,8 +726,6 @@ $(document).ready(function(){
             // Check if images are loaded
             carousel.imagesLoaded( function() {
 
-                console.log('all loaded');
-
                 // Indiciate that all images are loaded
                 carousel.addClass('is-loaded');
 
