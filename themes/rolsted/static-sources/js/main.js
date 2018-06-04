@@ -222,13 +222,12 @@ $(document).ready(function(){
         // This sets transition
         popping = false;
 
-        // Trigger Google Analytics pageview
-        if (typeof ga === 'function') {
-            ga('send', 'pageview', location.pathname);
-        }
+        // Google Analytics pageview
+        if (window.ga && (document.location.hostname != "localhost" && document.location.hostname != "xcrap.local")) { 
+            gtag('config', 'UA-118399280-1', {'page_path': location.pathname}); 
+        } 
 
-    });
-    
+    });    
 
     // When new page is ready
     Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, rawHTML) {
