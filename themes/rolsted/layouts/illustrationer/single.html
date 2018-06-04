@@ -18,7 +18,7 @@
             </i>
             <span>{{ i18n "facebook-base" }}<span class="h-hide-up-to-md"> {{ i18n "facebook-desktop" }}</span></span>
         </a>
-        <a class="c-fixed-navbar__item c-fixed-navbar__button js-button-order" onclick="ga('send', 'event', 'Button', 'click', 'Order');" data-modal-target="order">
+        <a class="c-fixed-navbar__item c-fixed-navbar__button js-button-order" onclick="gtag('event', 'add_to_cart', { method : 'Google' });" data-modal-target="order">
             <i class="c-icon c-icon--xs c-icon--dark">
                 {{ partial "svg/cart" }}
             </i>
@@ -41,7 +41,7 @@
                         {{ replace $string_cleaned "</p>" "" | safeHTML }}
                     </div>
                 </div>
-                <a class="c-button c-button--add-to-cart js-button-order" onclick="ga('send', 'event', 'Button', 'click', 'Order');" data-modal-target="order">
+                <a class="c-button c-button--add-to-cart js-button-order" onclick="gtag('event', 'add_to_cart', { method : 'Google' });" data-modal-target="order">
                     <i class="c-button__icon">{{ partial "svg/cart" }}</i>
                     {{ i18n "order" }}
                 </a>
