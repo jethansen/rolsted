@@ -1,17 +1,16 @@
 .c-modal {
     &:extend(.x-flex, .x-flex-center, .x-flex-around);
-    .transition(background-color 0.7s ease);
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: fade(@color-gray-dark, 50%);
     z-index: 999;
     padding: 1rem;
     font-size: 0.9em;
     
     -webkit-overflow-scrolling: touch;
+    overflow: auto;
     .backface-visibility(hidden);
 
     &.is-hidden {
@@ -19,7 +18,22 @@
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        background-color: fade(@color-gray-dark, 0%); 
+
+        &:after {
+            opacity: 0;
+        }
+    }
+
+    &:after {
+        .transition(opacity 0.7s ease);
+        content: '';
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: fade(@color-gray-dark, 50%);
     }
 
     @media @screen-md {
@@ -33,6 +47,7 @@
     position: relative;
     background: white;
     max-width: 340px;
+    margin: auto;
 
     .is-hidden & {
         .translateY(3em);
@@ -85,6 +100,7 @@
     @media @screen-md {
         padding: 4rem;
         text-align: center;
+        flex: 1 0 0;
 
         &:not(:last-child) {
             border-right: 1px solid @color-gray-border;
@@ -122,6 +138,13 @@
 
 .c-modal__col-inner {
     &:extend(.x-transition);
+
+    @media @screen-md {
+        .display-flex();
+        .flex-direction(column);
+        height: 100%;
+        
+    }
 
 }
 
@@ -197,7 +220,9 @@
 .c-modal__col-price {
 
     @media @screen-up-to-md {
-        display: none;
+        font-size: 0.9em;
+        color: @color-gray-regular;
+        margin: .3em 0 0 3em;
     }
 
     /* Disabled column */
@@ -212,8 +237,8 @@
     @media @screen-up-to-md {
         top: -0.2em;
         float: left;
-        margin: 0 0.7em 0 0;
-        .scale(0.85);
+        margin: 0 1em 0 0;
+        .scale(0.9);
     }
 
     @media @screen-md {
@@ -237,6 +262,10 @@
     padding: 0.8em 2em;
     text-align: center;
     &:extend(.x-transition-slow);
+
+    @media @screen-md {
+        margin-top: auto;
+    }
 
     /* Disabled column */
     .c-modal__col--disabled & {
@@ -264,7 +293,7 @@
     margin: 0.2em 0 -0.2em 0;
 
     @media @screen-up-to-md {
-        font-size: 1.7em;
+        font-size: 1.6em;
     }
 
     /* Disabled column */
