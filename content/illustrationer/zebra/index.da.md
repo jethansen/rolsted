@@ -18,4 +18,4 @@ tags = ["Dyr"]
 
 +++
 
-
+Klar til hop og dans på den afrikanske savanne.
