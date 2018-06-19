@@ -11,7 +11,7 @@
 
         {{ if eq .Lang "da" }}
             <div class="c-modal__body js-modal-inner">
-                <div class="c-modal__col" href="" onclick="javascript:location.href='mailto:%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E%40%67%6D%61%69%6C%2E%63%6F%6D?subject={{ i18n "order-subject" }} {{ .Title }}'">
+                <div class="c-modal__col" onclick="javascript:location.href='mailto:%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E%40%67%6D%61%69%6C%2E%63%6F%6D?subject={{ i18n "order-subject" }} {{ .Title }}'">
                     <div class="c-modal__col-inner">
                         <i class="c-modal__col-icon c-icon c-icon--budicon-sm c-icon--dark">{{ partial "svg/doodle" }}</i>
                         <div class="c-modal__col-divider"></div>
@@ -39,7 +39,7 @@
         {{ else }}
 
             <div class="c-modal__body js-modal-inner">
-                <div class="c-modal__col" href="" onclick="javascript:location.href='mailto:%72%6F%6C%73%74%65%64%2E%64%65%73%69%67%6E%40%67%6D%61%69%6C%2E%63%6F%6D?subject={{ i18n "order-subject" }} {{ .Title }}'">
+                <div class="c-modal__col">
                     <div class="c-modal__col-inner">
                         <h2 class="c-modal__col-headline">Sorry...</h2>
                         <p>{{ i18n "order-overlay-text" | safeHTML }}</p>
