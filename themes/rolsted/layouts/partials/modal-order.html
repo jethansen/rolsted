@@ -23,6 +23,24 @@
                     </div>
                     <div class="c-modal__col-or">{{ i18n "or" }}</div>
                 </div>
+                
+                <!-- If illustration is available at Present Image -->
+                {{ if .Params.dealer_link }}
+                    
+                <div class="c-modal__col" onclick="javascript:window.open('{{ .Params.dealer_link }}','_blank');">
+                    <div class="c-modal__col-inner">
+                        <i class="c-modal__col-icon c-icon c-icon--budicon-sm c-icon--dark">{{ partial "svg/poster" }}</i>
+                        <div class="c-modal__col-divider"></div>
+                        <h2 class="c-modal__col-headline">{{ i18n "modal-order-poster-headline" }}</h2>
+                        <div class="c-modal__col-divider"></div>
+                        <div class="c-modal__col-price t-bold-dark">{{ i18n "modal-order-poster-price" }}</div>
+                        <p>{{ i18n "modal-order-poster-text" | safeHTML }}</p>
+                        <div class="c-modal__col-button">{{ i18n "order" }}</div>
+                    </div>
+                </div>
+                    
+                {{ else }}
+                
                 <div class="c-modal__col c-modal__col--disabled">
                     <div class="c-modal__col-inner">
                         <i class="c-modal__col-icon c-icon c-icon--budicon-sm c-icon--dark">{{ partial "svg/poster" }}</i>
@@ -30,10 +48,13 @@
                         <h2 class="c-modal__col-headline">{{ i18n "modal-order-poster-headline" }}</h2>
                         <div class="c-modal__col-divider"></div>
                         <div class="c-modal__col-price t-bold-dark">{{ i18n "not-yet-available" }}</div>
-                        <p>{{ i18n "modal-order-poster-text" | safeHTML }}</p>
+                        <p>{{ i18n "modal-order-poster-text-unavailable" | safeHTML }}</p>
                         <div class="c-modal__col-button">{{ i18n "order" }}</div>
                     </div>
                 </div>
+                
+                {{ end }}
+
             </div>
 
         {{ else }}

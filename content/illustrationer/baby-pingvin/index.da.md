@@ -9,6 +9,9 @@ color = "blue"
 ## Tags
 tags = ["Arktis","Dyr"]
 
+## Dealer info
+dealer_link = "https://www.presentimage.no/products/rolsted-baby-penguin"
+
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

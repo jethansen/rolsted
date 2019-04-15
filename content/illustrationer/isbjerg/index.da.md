@@ -9,6 +9,9 @@ color = "blue"
 ## Tags
 tags = ["Arktis","Abstrakt"]
 
+## Dealer info
+dealer_link = "https://www.presentimage.no/products/rolsted-iceberg"
+
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

@@ -1,0 +1,33 @@
+/* Dealer button */
+.c-button-dealer {
+    &:extend(.x-transition);
+    margin-bottom: 3em;
+    display: block;
+    background: @color-gray-dark;
+    font-weight: @font-weight-body-bold;
+    color: white;
+    text-align: center;
+    padding-bottom: 0.7em;
+    font-size: 0.9em;
+    cursor: pointer;
+    max-width: 200px;
+    .backface-visibility(hidden);
+    .box-shadow(0 1.5em 3em -1em fade(@color-gray-dark, 30%));
+    
+    .no-touchevents &:hover {
+        .box-shadow(0 1.5em 3em -1em fade(@color-gray-dark, 60%));
+    }
+
+    
+    @media @screen-up-to-md {
+        margin: 3em auto;
+    }
+    
+    img {
+        margin-bottom: 0.7em;
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+}

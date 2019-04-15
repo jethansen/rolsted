@@ -10,6 +10,9 @@ url = "/en/illustrations/feather/"
 ## Tags
 tags = ["Abstract", "Nature"]
 
+## Dealer info
+dealer_link = "https://www.presentimage.no/en/products/rolsted-feather"
+
 ## Resources
 [[resources]]
   src = "*_multi.jpg"
@@ -18,4 +21,3 @@ tags = ["Abstract", "Nature"]
     images = ["Feather","Leaf","Hummingbird"]
 
 +++
-

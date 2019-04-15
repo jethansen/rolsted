@@ -9,6 +9,9 @@ color = "purple"
 ## Tags
 tags = ["Dyr"]
 
+## Dealer info
+dealer_link = "https://www.presentimage.no/products/rolsted-butterfly"
+
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

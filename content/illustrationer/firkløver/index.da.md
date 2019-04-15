@@ -9,6 +9,10 @@ color = "green"
 ## Tags
 tags = ["Natur"]
 
+## Dealer info
+dealer_link = "https://www.presentimage.no/products/rolsted-leafed"
+
+
 ## Resources
 [[resources]]
   src = "*_multi.jpg"
