@@ -10,6 +10,9 @@ url = "/en/illustrations/hot-air-balloon/"
 ## Tags
 tags = ["Air"]
 
+## Dealer info
+dealer_link = "https://www.presentimage.no/en/products/rolsted-hot-air-ballon"
+
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

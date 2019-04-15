@@ -9,6 +9,9 @@ color = "yellow"
 ## Tags
 tags = ["Dyr"]
 
+## Dealer info
+dealer_link = "https://www.presentimage.no/products/rolsted-giraffe"
+
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

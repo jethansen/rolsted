@@ -10,6 +10,9 @@ url = "/en/illustrations/giraffe/"
 ## Tags
 tags = ["Animals"]
 
+## Dealer info
+dealer_link = "https://www.presentimage.no/en/products/rolsted-giraffe"
+
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

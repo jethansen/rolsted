@@ -67,6 +67,10 @@
                     </div>
                     <div class="col-xs-11 col-sm-8 col-lg-5 col-xl-6 c-inview__el c-inview__el--slide-right">
                         <h1 class="c-hero-layout-4__title h-hide-up-to-lg">{{ partial "headline" . }}</h1>
+                        <a href="https://www.presentimage.no/en/categories/artist-anette-berg-handpicked-posters" class="c-button-dealer" onclick="gtag('event', 'See posters on Present Image', { method : 'Google' });" target="_blank">
+                            <img src="{{ "_assets/images/present_image.png" | relURL}}" alt="Present Image Logo" width="500" height="500" />
+                            {{ i18n "dealer-button" }}
+                        </a>
                         {{ .Content }}
                         {{ if and (isset .Params "button_text") (isset .Params "button_link") }}
                         <div class="text--xs-center text--lg-left l-margin-top-md">

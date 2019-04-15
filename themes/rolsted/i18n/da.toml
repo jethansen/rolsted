@@ -77,7 +77,13 @@ other = "Denne illustration kan desværre endnu ikke købes via en online shop. 
 other = "Plakat"
 
 [modal-order-poster-text]
+other = "Køb denne illustration som en flot plakat via min forhandler Present Image i 30x40cm eller 50x70cm - bemærk at siden er norsk men også sender til Danmark."
+
+[modal-order-poster-text-unavailable]
 other = "Desværre. Denne illustration kan endnu ikke købes som plakat. Følg mig på <a class='c-link' href='https://www.facebook.com/rolsteddesign/'>Facebook</a>, <a class='c-link' href='https://www.instagram.com/rolsteddesign/'>Instagram</a> eller <a class='c-link' href='https://www.pinterest.com/rolsteddesign/'>Pinterest</a> - så giver jeg besked så snart det sker."
+
+[modal-order-poster-price]
+other = "Se priser hos forhandler"
 
 [modal-order-handdrawn-headline]
 other = "Håndtegnet"
@@ -93,3 +99,6 @@ other = "eller"
 
 [order-subject]
 other = "Bestilling af"
+
+[dealer-button]
+other = "Se plakater ⇾"
