@@ -9,9 +9,6 @@ color = "yellow"
 ## Tags
 tags = ["Dyr", "Luft"]
 
-## Dealer info
-dealer_link = "https://www.presentimage.no/products/rolsted-hummingbird"
-
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

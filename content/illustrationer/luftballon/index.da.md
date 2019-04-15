@@ -9,9 +9,6 @@ color = "gray"
 ## Tags
 tags = ["Luft"]
 
-## Dealer info
-dealer_link = "https://www.presentimage.no/products/rolsted-hot-air-ballon"
-
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

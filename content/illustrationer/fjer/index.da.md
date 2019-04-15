@@ -9,9 +9,6 @@ color = "purple"
 ## Tags
 tags = ["Abstrakt", "Natur"]
 
-## Dealer info
-dealer_link = "https://www.presentimage.no/products/rolsted-feather"
-
 ## Resources
 [[resources]]
   src = "*_multi.jpg"

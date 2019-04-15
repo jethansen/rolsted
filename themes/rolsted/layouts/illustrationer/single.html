@@ -41,22 +41,10 @@
                         {{ replace $string_cleaned "</p>" "" | safeHTML }}
                     </div>
                 </div>
-                
-                <!-- If EN language is chosen and illustration is available on dealer site go directly to item -->
-                {{ if (and (eq .Lang "en") (.Params.dealer_link)) }}
-                    <a class="c-button c-button--add-to-cart" onclick="gtag('event', 'add_to_cart', { method : 'Google' });" href="{{ .Params.dealer_link }}" target="_blank">
-                        <i class="c-button__icon">{{ partial "svg/cart" }}</i>
-                        {{ i18n "order" }}
-                    </a>
-                    
-                <!-- else just open the modal -->
-                {{ else }}
-                    <a class="c-button c-button--add-to-cart js-button-order" onclick="gtag('event', 'add_to_cart', { method : 'Google' });" data-modal-target="order">
-                        <i class="c-button__icon">{{ partial "svg/cart" }}</i>
-                        {{ i18n "order" }}
-                    </a>
-                {{end}}
-                
+                <a class="c-button c-button--add-to-cart js-button-order" onclick="gtag('event', 'add_to_cart', { method : 'Google' });" data-modal-target="order">
+                    <i class="c-button__icon">{{ partial "svg/cart" }}</i>
+                    {{ i18n "order" }}
+                </a>
             </div>
         </div>
     </div>
