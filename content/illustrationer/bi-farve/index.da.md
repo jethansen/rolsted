@@ -1,21 +1,21 @@
 +++
 
 ## Base info
-title = "Bee"
-date = 2019-09-20T21:45:06+00:00
+title = "Bi (med farve)"
+date = 2019-09-21T10:20:51+00:00
 draft = false
 color = "yellow"
-url = "/en/illustrations/bee/"
 
 ## Tags
-tags = ["Animals","Air"]
+tags = ["Dyr","Luft"]
 
 ## Resources
 [[resources]]
   src = "*_multi.jpg"
   name = "multi"
  [resources.params]
-    images = ["Bee","Fox"]
+    images = ["Bi (med farve)","Ræv"]
 
 +++
+
 

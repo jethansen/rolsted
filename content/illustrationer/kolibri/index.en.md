@@ -4,7 +4,7 @@
 title = "Hummingbird"
 date = 2018-03-25T16:58:30+02:00
 draft = false
-color = "yellow"
+color = "salmon"
 url = "/en/illustrations/hummingbird/"
 
 ## Tags

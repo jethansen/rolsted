@@ -1,11 +1,11 @@
 +++
 
 ## Base info
-title = "Bee"
-date = 2019-09-20T21:45:06+00:00
+title = "Bee (in color)"
+date = 2019-09-21T10:20:51+00:00
 draft = false
 color = "yellow"
-url = "/en/illustrations/bee/"
+url = "/en/illustrations/bee-in-color/"
 
 ## Tags
 tags = ["Animals","Air"]
@@ -15,7 +15,7 @@ tags = ["Animals","Air"]
   src = "*_multi.jpg"
   name = "multi"
  [resources.params]
-    images = ["Bee","Fox"]
+    images = ["Bee (in color)","Fox"]
 
 +++
 
