@@ -15,7 +15,7 @@ tags = ["Animals","Air"]
   src = "*_multi.jpg"
   name = "multi"
  [resources.params]
-    images = ["Bee (in color)","Fox"]
+    images = ["Bee (in color)","Leafed"]
 
 +++
 
