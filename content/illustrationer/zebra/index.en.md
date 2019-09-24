@@ -8,7 +8,7 @@ color = "yellow"
 url = "/en/illustrations/zebra/"
 
 ## Tags
-tags = ["Animals"]
+tags = ["Animals","Savanna"]
 
 ## Resources
 [[resources]]
@@ -19,4 +19,4 @@ tags = ["Animals"]
 
 +++
 
-Ready to show of some jumping and dancing on the African savannah.
+Ready to show of some jumping and dancing on the African savanna.

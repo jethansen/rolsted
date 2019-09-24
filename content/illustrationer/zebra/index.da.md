@@ -7,7 +7,7 @@ draft = false
 color = "yellow"
 
 ## Tags
-tags = ["Dyr"]
+tags = ["Dyr","Savannen"]
 
 ## Resources
 [[resources]]

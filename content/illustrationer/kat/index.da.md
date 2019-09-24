@@ -1,19 +1,19 @@
 +++
 
 ## Base info
-title = "Elefant"
-date = 2019-09-20T21:13:08+00:00
+title = "Kat"
+date = 2019-09-24T20:26:07+00:00
 draft = false
-color = "yellow"
+color = "blue"
 
 ## Tags
-tags = ["Dyr","Savannen"]
+tags = ["Dyr"]
 
 ## Resources
 [[resources]]
   src = "*_multi.jpg"
   name = "multi"
  [resources.params]
-    images = ["Elefant","Giraf"]
+    images = ["Kat","Ræv"]
 
 +++

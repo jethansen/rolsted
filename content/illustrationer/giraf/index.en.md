@@ -8,7 +8,7 @@ color = "yellow"
 url = "/en/illustrations/giraffe/"
 
 ## Tags
-tags = ["Animals"]
+tags = ["Animals","Savanna"]
 
 ## Dealer info
 dealer_link = "https://www.presentimage.no/en/products/rolsted-giraffe"
@@ -21,4 +21,3 @@ dealer_link = "https://www.presentimage.no/en/products/rolsted-giraffe"
     images = ["Giraffe","Butterfly","Hummingbird"]
 
 +++
-

@@ -8,7 +8,7 @@ color = "yellow"
 url = "/en/illustrations/elephant/"
 
 ## Tags
-tags = ["Animals"]
+tags = ["Animals","Savanna"]
 
 ## Resources
 [[resources]]
@@ -18,4 +18,3 @@ tags = ["Animals"]
     images = ["Elephant","Giraffe"]
 
 +++
-

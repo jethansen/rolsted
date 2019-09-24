@@ -7,7 +7,7 @@ draft = false
 color = "yellow"
 
 ## Tags
-tags = ["Dyr"]
+tags = ["Dyr","Savannen"]
 
 ## Dealer info
 dealer_link = "https://www.presentimage.no/products/rolsted-giraffe"
@@ -20,5 +20,3 @@ dealer_link = "https://www.presentimage.no/products/rolsted-giraffe"
     images = ["Giraf","Sommerfugl","Kolibri"]
 
 +++
-
-
